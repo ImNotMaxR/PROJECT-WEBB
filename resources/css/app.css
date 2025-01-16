@@ -1,0 +1,27 @@
+
+/* Fade transition styles */  
+.fade {  
+    opacity: 0;  
+    transition: opacity 0.5s ease-in-out;  
+}  
+  
+.fade.show {  
+    opacity: 1;  
+}  
+
+:root {  
+    --comic-title-color: #ffffff; /* Default color for dark mode */  
+}  
+  
+@media (prefers-color-scheme: light) {  
+    :root {  
+        --comic-title-color: #000000; /* Color for light mode */  
+    }  
+}  
+  
+.comic-title {  
+    font-size: 1.1rem;  
+    font-weight: bold;  
+    color: var(--comic-title-color); /* Use the variable for color */  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */  
+}  
