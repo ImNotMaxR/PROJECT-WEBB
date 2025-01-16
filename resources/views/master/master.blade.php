@@ -32,7 +32,7 @@
 
 <body>
 
-    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
+    <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled" >
         <!--begin::Theme mode setup on page load-->
         <script>
             var defaultThemeMode = "light";
@@ -414,3 +414,5 @@
     @include('master.header')
 
     @yield('content')
+
+

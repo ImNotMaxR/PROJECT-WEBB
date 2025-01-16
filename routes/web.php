@@ -55,13 +55,13 @@ Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {
 });
   
     // Kategori management routes for admin  
-    Route::prefix('kategori')->group(function () {  
-        Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');    
-        Route::get('/create', [KategoriController::class, 'create'])->name('kategori.create');    
-        Route::post('/', [KategoriController::class, 'store'])->name('kategori.store');    
-        Route::get('/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');    
-        Route::put('/update/{id}', [KategoriController::class, 'update'])->name('kategori.update');    
-        Route::delete('/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');    
+    Route::prefix('kategori')->group(function () {    
+        Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');      
+        Route::get('/create', [KategoriController::class, 'create'])->name('kategori.create');      
+        Route::post('/', [KategoriController::class, 'store'])->name('kategori.store');        
+        Route::put('/update/{id}', [KategoriController::class, 'update'])->name('kategori.update'); // Route untuk update  
+        Route::delete('/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');      
+        Route::get('/data', [KategoriController::class, 'getKategoris'])->name('kategori.data'); // Route untuk mendapatkan data  
     });
 });  
   
