@@ -21,13 +21,17 @@
             <!--end:Menu item-->
 
             <!--begin:Menu item-->
+            @if (Auth::check() && Auth::user()->role === 'user')
             <div class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                 <!--begin:Menu link-->
-                <a href="" class="menu-link py-3">
+                <a href="{{route('pinjam.peminjaman')}}" class="menu-link py-3">
                     <span class="menu-title">Pinjam Buku</span>
                 </a>
                 <!--end:Menu link-->
             </div>
+            @endif
+
+            
             <!--end:Menu item-->
             @if (Auth::check() && Auth::user()->role === 'admin')
             <!--begin:Menu item-->
@@ -47,7 +51,7 @@
                         <!--begin:Menu link-->
                         <a class="menu-link py-3" href="{{ route('admin.dashboard') }}">
                             <span class="menu-icon">
-                                <i class="ki-duotone ki-abstract-26">
+                                <i class="ki-duotone ki-abstract-26 fs-2">
      <span class="path1"></span>
      <span class="path2"></span>
     </i>
@@ -74,6 +78,22 @@
                         <!--end:Menu link-->
                     </div>
                     <!--end:Menu item-->
+
+                                        <!--begin:Menu item-->
+                                        <div class="menu-item">
+                                            <!--begin:Menu link-->
+                                            <a class="menu-link py-3" href="{{route('request.pinjam')}}">
+                                                <span class="menu-icon">
+                                                    <i class="ki-duotone ki-tablet-book fs-2">
+                         <span class="path1"></span>
+                         <span class="path2"></span>
+                        </i>
+                                                </span>
+                                                <span class="menu-title">Kelola Peminjaman</span>
+                                            </a>
+                                            <!--end:Menu link-->
+                                        </div>
+                                        <!--end:Menu item-->
             
                     <!--begin:Menu item-->
                     <div class="menu-item">
