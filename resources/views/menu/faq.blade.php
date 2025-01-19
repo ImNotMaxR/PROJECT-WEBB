@@ -1,11 +1,23 @@
-@extends('master.master')        
+@extends('master.master')
 
-@section('title', 'Admin Dashboard')  
-
-  
-@section('content')  
+@section('content')
+<!DOCTYPE html>
+<!--
+Author: Keenthemes
+Product Name: Metronic
+Product Version: 8.2.0
+Purchase: https://1.envato.market/EA4JP
+Website: http://www.keenthemes.com
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
 	<!--begin::Head-->
-	<head><base href="../"/>
+	<head><base href="../../"/>
+		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
 		<meta name="keywords" content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -22,7 +34,6 @@
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
 		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
@@ -31,17 +42,10 @@
 		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 	</head>
 	<!--end::Head-->
-	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
-		<!--begin::Theme mode setup on page load-->
-		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
-		<!--end::Theme mode setup on page load-->
-		<!--begin::Main-->
-		<!--begin::Root-->
-		<div class="d-flex flex-column flex-root">
-			<!--begin::Page-->
-			<div class="page d-flex flex-row flex-column-fluid">
-				<!--begin::Wrapper-->
-				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+	<!--begin::Body-->
+
+					</div>
+					<!--end::Header-->
 					<!--begin::Toolbar-->
 					<div class="toolbar py-5 py-lg-5" id="kt_toolbar">
 						<!--begin::Container-->
@@ -49,8 +53,23 @@
 							<!--begin::Page title-->
 							<div class="page-title d-flex flex-column me-3">
 								<!--begin::Title-->
-								<h1 class="d-flex text-dark fw-bold my-1 fs-3">Admin Dashboard</h1>
+								<h1 class="d-flex text-dark fw-bold my-1 fs-3">Faq Classic</h1>
 								<!--end::Title-->
+								<!--begin::Breadcrumb-->
+								<ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7 my-1">
+									<!--begin::Item-->
+									<li class="breadcrumb-item text-gray-600">
+										<a href="../../demo11/dist/index.html" class="text-gray-600 text-hover-primary">Home</a>
+									</li>
+									<!--end::Item-->
+									<!--begin::Item-->
+									<li class="breadcrumb-item text-gray-600">FAQ</li>
+									<!--end::Item-->
+									<!--begin::Item-->
+									<li class="breadcrumb-item text-gray-500">FAQ Classic</li>
+									<!--end::Item-->
+								</ul>
+								<!--end::Breadcrumb-->
 							</div>
 							<!--end::Page title-->
 							<!--begin::Actions-->
@@ -64,7 +83,7 @@
 										<span class="path2"></span>
 									</i>Filter</a>
 									<!--begin::Menu 1-->
-									<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_64b776da028b4">
+									<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_64b776e05d0a4">
 										<!--begin::Header-->
 										<div class="px-7 py-5">
 											<div class="fs-5 text-dark fw-bold">Filter Options</div>
@@ -82,7 +101,7 @@
 												<!--end::Label-->
 												<!--begin::Input-->
 												<div>
-													<select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_64b776da028b4" data-allow-clear="true">
+													<select class="form-select form-select-solid" multiple="multiple" data-kt-select2="true" data-close-on-select="false" data-placeholder="Select option" data-dropdown-parent="#kt_menu_64b776e05d0a4" data-allow-clear="true">
 														<option></option>
 														<option value="1">Approved</option>
 														<option value="2">Pending</option>
@@ -155,2055 +174,767 @@
 					<div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-xxl">
 						<!--begin::Post-->
 						<div class="content flex-row-fluid" id="kt_content">
-							<!--begin::Row-->
-							<div class="row g-5 g-xl-10">
-								<!--begin::Col-->
-								<div class="col-xxl-6 mb-md-5 mb-xl-10">
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10">
-										<!--begin::Col-->
-										<div class="col-md-6 col-xl-6 mb-xxl-10">
-											<!--begin::Card widget 8-->
-											<div class="card overflow-hidden h-md-50 mb-5 mb-xl-10">
-												<!--begin::Card body-->
-												<div class="card-body d-flex justify-content-between flex-column px-0 pb-0">
-													<!--begin::Statistics-->
-													<div class="mb-4 px-9">
-														<!--begin::Info-->
-														<div class="d-flex align-items-center mb-2">
-															<!--begin::Value-->
-															<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ $totalBuku }}</span>
-															<!--end::Value-->
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-semibold text-gray-400">Total Buku</span>
-														<!--end::Description-->
-													</div>
-													<!--end::Statistics-->
-													<!--begin::Chart-->
-													<div id="kt_card_widget_8_chart" class="min-h-auto" style="height: 125px"></div>
-													<!--end::Chart-->
-													
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Card widget 8-->
-											<!--begin::Card widget 5-->
-											<div class="card card-flush h-md-50 mb-xl-10">
-												<!--begin::Header-->
-												<div class="card-header pt-5">
-													<!--begin::Title-->
-													<div class="card-title d-flex flex-column">
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Amount-->
-															<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2"></span>
-															<!--end::Amount-->
-														</div>
-														<!--end::Info-->
-														<!--begin::Subtitle-->
-														<span class="text-gray-400 pt-1 fw-semibold fs-6">Total Buku</span>
-														<!--end::Subtitle-->
-													</div>
-													<!--end::Title-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Card body-->
-												<div class="card-body d-flex align-items-end pt-0">
-													<!--begin::Progress-->
-													<div class="d-flex align-items-center flex-column mt-3 w-100">
-														<div class="d-flex justify-content-between w-100 mt-auto mb-2">
-															<span class="fw-bolder fs-6 text-dark">1,048 to Goal</span>
-															<span class="fw-bold fs-6 text-gray-400">62%</span>
-														</div>
-														<div class="h-8px mx-3 w-100 bg-light-success rounded">
-															<div class="bg-success rounded h-8px" role="progressbar" style="width: 62%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-														</div>
-													</div>
-													<!--end::Progress-->
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Card widget 5-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-md-6 col-xl-6 mb-xxl-10">
-											<!--begin::Card widget 9-->
-											<div class="card overflow-hidden h-md-50 mb-5 mb-xl-10">
-												<!--begin::Card body-->
-												<div class="card-body d-flex justify-content-between flex-column px-0 pb-0">
-													<!--begin::Statistics-->
-													<div class="mb-4 px-9">
-														<!--begin::Statistics-->
-														<div class="d-flex align-items-center mb-2">
-															<!--begin::Value-->
-															<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ $totalKategori }}</span>
-															<!--end::Value-->
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>2.6%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Statistics-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-semibold text-gray-400">Total Kategori</span>
-														<!--end::Description-->
-													</div>
-													<!--end::Statistics-->
-													<!--begin::Chart-->
-													<div id="kt_card_widget_9_chart" class="min-h-auto" style="height: 125px"></div>
-													<!--end::Chart-->
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Card widget 9-->
-											<!--begin::Card widget 7-->
-											<div class="card card-flush h-md-50 mb-xl-10">
-												<!--begin::Header-->
-												<div class="card-header pt-5">
-													<!--begin::Title-->
-													<div class="card-title d-flex flex-column">
-														<!--begin::Amount-->
-														<span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $totalUser }}</span>
-														<!--end::Amount-->
-														<!--begin::Subtitle-->
-														<span class="text-gray-400 pt-1 fw-semibold fs-6">Total User</span>
-														<!--end::Subtitle-->
-													</div>
-													<!--end::Title-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Card body-->
-												<div class="card-body d-flex flex-column justify-content-end pe-0">
-													<!--begin::Title-->
-													<span class="fs-6 fw-bolder text-gray-800 d-block mb-2">Today’s Heroes</span>
-													<!--end::Title-->
-													<!--begin::Users group-->
-													<div class="symbol-group symbol-hover flex-nowrap">
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-															<span class="symbol-label bg-warning text-inverse-warning fw-bold">A</span>
-														</div>
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Michael Eberon">
-															<img alt="Pic" src="assets/media/avatars/300-11.jpg" />
-														</div>
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Susan Redwood">
-															<span class="symbol-label bg-primary text-inverse-primary fw-bold">S</span>
-														</div>
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Melody Macy">
-															<img alt="Pic" src="assets/media/avatars/300-2.jpg" />
-														</div>
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Perry Matthew">
-															<span class="symbol-label bg-danger text-inverse-danger fw-bold">P</span>
-														</div>
-														<div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Barry Walter">
-															<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-														</div>
-														<a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
-															<span class="symbol-label bg-light text-gray-400 fs-8 fw-bold">+42</span>
-														</a>
-													</div>
-													<!--end::Users group-->
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Card widget 7-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xxl-6 mb-5 mb-xl-10">
-									<!--begin::Maps widget 1-->
-									<div class="card card-flush h-md-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
+							<!--begin::FAQ card-->
+							<div class="card">
+								<!--begin::Body-->
+								<div class="card-body p-lg-15">
+									<!--begin::Classic content-->
+									<div class="mb-13">
+										<!--begin::Intro-->
+										<div class="mb-15">
 											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-dark">World Sales</span>
-												<span class="text-gray-400 pt-2 fw-semibold fs-6">Top Selling Countries</span>
-											</h3>
+											<h4 class="fs-2x text-gray-800 w-bolder mb-6">Frequesntly Asked Questions</h4>
 											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu 3-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
-													<!--begin::Heading-->
-													<div class="menu-item px-3">
-														<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-													</div>
-													<!--end::Heading-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Create Invoice</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link flex-stack px-3">Create Payment
-														<span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
-															<i class="ki-duotone ki-information fs-6">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</span></a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Generate Bill</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-														<a href="#" class="menu-link px-3">
-															<span class="menu-title">Subscription</span>
-															<span class="menu-arrow"></span>
-														</a>
-														<!--begin::Menu sub-->
-														<div class="menu-sub menu-sub-dropdown w-175px py-4">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Plans</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Billing</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Statements</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu separator-->
-															<div class="separator my-2"></div>
-															<!--end::Menu separator-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<div class="menu-content px-3">
-																	<!--begin::Switch-->
-																	<label class="form-check form-switch form-check-custom form-check-solid">
-																		<!--begin::Input-->
-																		<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																		<!--end::Input-->
-																		<!--end::Label-->
-																		<span class="form-check-label text-muted fs-6">Recuring</span>
-																		<!--end::Label-->
-																	</label>
-																	<!--end::Switch-->
-																</div>
-															</div>
-															<!--end::Menu item-->
-														</div>
-														<!--end::Menu sub-->
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3 my-1">
-														<a href="#" class="menu-link px-3">Settings</a>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu 3-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
+											<!--begin::Text-->
+											<p class="fw-semibold fs-4 text-gray-600 mb-2">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</p>
+											<!--end::Text-->
 										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body d-flex flex-center">
-											<!--begin::Map container-->
-											<div id="kt_maps_widget_1_map" class="w-100 h-350px"></div>
-											<!--end::Map container-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Maps widget 1-->
-								</div>
-								<!--end::Col-->
-							</div>
-							<!--end::Row-->
-							<!--begin::Row-->
-							<div class="row g-5 g-xl-10 g-xl-10">
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-xl-10">
-									<!--begin::Engage widget 1-->
-									<div class="card h-md-100" dir="ltr">
-										<!--begin::Body-->
-										<div class="card-body d-flex flex-column flex-center">
-											<!--begin::Heading-->
-											<div class="mb-2">
+										<!--end::Intro-->
+										<!--begin::Row-->
+										<div class="row mb-12">
+											<!--begin::Col-->
+											<div class="col-md-6 pe-md-10 mb-10 mb-md-0">
 												<!--begin::Title-->
-												<h1 class="fw-semibold text-gray-800 text-center lh-lg">Have you tried
-												<br />new
-												<span class="fw-bolder">Invoice Manager ?</span></h1>
+												<h2 class="text-gray-800 fw-bold mb-4">Buying Product</h2>
 												<!--end::Title-->
-												<!--begin::Illustration-->
-												<div class="py-10 text-center">
-													<img src="assets/media/svg/illustrations/easy/2.svg" class="theme-light-show w-200px" alt="" />
-													<img src="assets/media/svg/illustrations/easy/2-dark.svg" class="theme-dark-show w-200px" alt="" />
-												</div>
-												<!--end::Illustration-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Links-->
-											<div class="text-center mb-1">
-												<!--begin::Link-->
-												<a class="btn btn-sm btn-primary me-2" href="../../demo11/dist/apps/ecommerce/customers/listing.html">Try now</a>
-												<!--end::Link-->
-												<!--begin::Link-->
-												<a class="btn btn-sm btn-light" href="../../demo11/dist/apps/invoices/view/invoice-1.html">Learn more</a>
-												<!--end::Link-->
-											</div>
-											<!--end::Links-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Engage widget 1-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-xl-10">
-									<!--begin::Chart widget 5-->
-									<div class="card card-flush h-md-100">
-										<!--begin::Header-->
-										<div class="card-header flex-nowrap pt-5">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-dark">Top Selling Categories</span>
-												<span class="text-gray-400 pt-2 fw-semibold fs-6">8k social visitors</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu 2-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mb-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Ticket</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Customer</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-														<!--begin::Menu item-->
-														<a href="#" class="menu-link px-3">
-															<span class="menu-title">New Group</span>
-															<span class="menu-arrow"></span>
-														</a>
-														<!--end::Menu item-->
-														<!--begin::Menu sub-->
-														<div class="menu-sub menu-sub-dropdown w-175px py-4">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Admin Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Staff Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Member Group</a>
-															</div>
-															<!--end::Menu item-->
-														</div>
-														<!--end::Menu sub-->
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Contact</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mt-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content px-3 py-3">
-															<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
-														</div>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu 2-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-5 ps-6">
-											<div id="kt_charts_widget_5" class="min-h-auto"></div>
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Chart widget 5-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-5 mb-xl-10">
-									<!--begin::List widget 6-->
-									<div class="card card-flush h-md-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-gray-800">Top Selling Products</span>
-												<span class="text-gray-400 mt-1 fw-semibold fs-6">8k social visitors</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<a href="../../demo11/dist/apps/ecommerce/catalog/categories.html" class="btn btn-sm btn-light">View All</a>
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-4">
-											<!--begin::Table container-->
-											<div class="table-responsive">
-												<!--begin::Table-->
-												<table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-													<!--begin::Table head-->
-													<thead>
-														<tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-															<th class="p-0 w-50px pb-1">ITEM</th>
-															<th class="ps-0 min-w-140px"></th>
-															<th class="text-end min-w-140px p-0 pb-1">TOTAL PRICE</th>
-														</tr>
-													</thead>
-													<!--end::Table head-->
-													<!--begin::Table body-->
-													<tbody>
-														<tr>
-															<td>
-																<img src="assets/media/stock/ecommerce/210.png" class="w-50px" alt="" />
-															</td>
-															<td class="ps-0">
-																<a href="../../demo11/dist/apps/ecommerce/sales/details.html" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Elephant 1802</a>
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Item: #XDG-2347</span>
-															</td>
-															<td>
-																<span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">$72.00</span>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<img src="assets/media/stock/ecommerce/215.png" class="w-50px" alt="" />
-															</td>
-															<td class="ps-0">
-																<a href="../../demo11/dist/apps/ecommerce/sales/details.html" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Red Laga</a>
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Item: #XDG-2347</span>
-															</td>
-															<td>
-																<span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">$45.00</span>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<img src="assets/media/stock/ecommerce/209.png" class="w-50px" alt="" />
-															</td>
-															<td class="ps-0">
-																<a href="../../demo11/dist/apps/ecommerce/sales/details.html" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">RiseUP</a>
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Item: #XDG-2347</span>
-															</td>
-															<td>
-																<span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">$168.00</span>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<img src="assets/media/stock/ecommerce/214.png" class="w-50px" alt="" />
-															</td>
-															<td class="ps-0">
-																<a href="../../demo11/dist/apps/ecommerce/sales/details.html" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6 text-start pe-0">Yellow Stone</a>
-																<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Item: #XDG-2347</span>
-															</td>
-															<td>
-																<span class="text-gray-800 fw-bold d-block fs-6 ps-0 text-end">$72.00</span>
-															</td>
-														</tr>
-													</tbody>
-													<!--end::Table body-->
-												</table>
-											</div>
-											<!--end::Table-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::List widget 6-->
-								</div>
-								<!--end::Col-->
-							</div>
-							<!--end::Row-->
-							<!--begin::Row-->
-							<div class="row g-5 g-xl-10">
-								<!--begin::Col-->
-								<div class="col-xxl-4 mb-xxl-10">
-									<!--begin::List widget 7-->
-									<div class="card card-flush h-md-100">
-										<!--begin::Header-->
-										<div class="card-header py-7">
-											<!--begin::Statistics-->
-											<div class="m-0">
-												<!--begin::Heading-->
-												<div class="d-flex align-items-center mb-2">
-													<!--begin::Title-->
-													<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">0.37%</span>
-													<!--end::Title-->
-													<!--begin::Badge-->
-													<span class="badge badge-light-danger fs-base">
-													<i class="ki-duotone ki-arrow-up fs-5 text-danger ms-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>8.02%</span>
-													<!--end::Badge-->
-												</div>
-												<!--end::Heading-->
-												<!--begin::Description-->
-												<span class="fs-6 fw-semibold text-gray-400">Online store convertion rate</span>
-												<!--end::Description-->
-											</div>
-											<!--end::Statistics-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu 2-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mb-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Ticket</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Customer</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-														<!--begin::Menu item-->
-														<a href="#" class="menu-link px-3">
-															<span class="menu-title">New Group</span>
-															<span class="menu-arrow"></span>
-														</a>
-														<!--end::Menu item-->
-														<!--begin::Menu sub-->
-														<div class="menu-sub menu-sub-dropdown w-175px py-4">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Admin Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Staff Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Member Group</a>
-															</div>
-															<!--end::Menu item-->
-														</div>
-														<!--end::Menu sub-->
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Contact</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mt-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content px-3 py-3">
-															<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
-														</div>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu 2-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-0">
-											<!--begin::Items-->
-											<div class="mb-0">
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Section-->
-													<div class="d-flex align-items-center me-5">
-														<!--begin::Symbol-->
-														<div class="symbol symbol-30px me-5">
-															<span class="symbol-label">
-																<i class="ki-duotone ki-magnifier fs-3 text-gray-600">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-															</span>
-														</div>
-														<!--end::Symbol-->
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Search Retargeting</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-													</div>
-													<!--end::Section-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-6 me-3">0.24%</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="d-flex flex-center">
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>2.4%</span>
-															<!--end::label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Section-->
-													<div class="d-flex align-items-center me-5">
-														<!--begin::Symbol-->
-														<div class="symbol symbol-30px me-5">
-															<span class="symbol-label">
-																<i class="ki-duotone ki-tiktok fs-3 text-gray-600">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-															</span>
-														</div>
-														<!--end::Symbol-->
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Social Retargeting</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-													</div>
-													<!--end::Section-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-6 me-3">0.94%</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="d-flex flex-center">
-															<!--begin::label-->
-															<span class="badge badge-light-danger fs-base">
-															<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>9.4%</span>
-															<!--end::label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Section-->
-													<div class="d-flex align-items-center me-5">
-														<!--begin::Symbol-->
-														<div class="symbol symbol-30px me-5">
-															<span class="symbol-label">
-																<i class="ki-duotone ki-sms fs-3 text-gray-600">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-															</span>
-														</div>
-														<!--end::Symbol-->
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Email Retargeting</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-													</div>
-													<!--end::Section-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-6 me-3">1.23%</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="d-flex flex-center">
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.2%</span>
-															<!--end::label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Section-->
-													<div class="d-flex align-items-center me-5">
-														<!--begin::Symbol-->
-														<div class="symbol symbol-30px me-5">
-															<span class="symbol-label">
-																<i class="ki-duotone ki-icon fs-3 text-gray-600">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																	<span class="path3"></span>
-																</i>
-															</span>
-														</div>
-														<!--end::Symbol-->
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Referrals Customers</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-													</div>
-													<!--end::Section-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-6 me-3">0.08%</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="d-flex flex-center">
-															<!--begin::label-->
-															<span class="badge badge-light-danger fs-base">
-															<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.4%</span>
-															<!--end::label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Section-->
-													<div class="d-flex align-items-center me-5">
-														<!--begin::Symbol-->
-														<div class="symbol symbol-30px me-5">
-															<span class="symbol-label">
-																<i class="ki-duotone ki-abstract-25 fs-3 text-gray-600">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-															</span>
-														</div>
-														<!--end::Symbol-->
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Other</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-													</div>
-													<!--end::Section-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-6 me-3">0.46%</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="d-flex flex-center">
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>8.3%</span>
-															<!--end::label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Item-->
-											</div>
-											<!--end::Items-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::List widget 7-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xxl-8 mb-5 mb-xl-10">
-									<!--begin::Chart widget 13-->
-									<div class="card card-flush h-md-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-dark">Sales Statistics</span>
-												<span class="text-gray-400 pt-2 fw-semibold fs-6">Top Selling Products</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4" data-kt-menu="true">
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Remove</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Mute</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Settings</a>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-5">
-											<!--begin::Chart container-->
-											<div id="kt_charts_widget_13_chart" class="w-100 h-325px"></div>
-											<!--end::Chart container-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Chart widget 13-->
-								</div>
-								<!--end::Col-->
-							</div>
-							<!--end::Row-->
-							<!--begin::Row-->
-							<div class="row g-5 g-xl-10 g-xl-10">
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-xl-10">
-									<!--begin::List widget 8-->
-									<div class="card card-flush h-xl-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7 mb-5">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-gray-800">Visits by Country</span>
-												<span class="text-gray-400 mt-1 fw-semibold fs-6">20 countries share 97% visits</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<a href="../../demo11/dist/apps/ecommerce/sales/listing.html" class="btn btn-sm btn-light">View All</a>
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-0">
-											<!--begin::Items-->
-											<div class="m-0">
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/united-states.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">United States</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">9,763</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>2.6%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/brazil.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Brasil</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">All Social Channels</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">4,062</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-danger fs-base">
-																<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>0.4%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/turkey.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Turkey</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">1,680</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>0.2%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/france.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">France</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Impact Radius visits</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">849</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>4.1%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/india.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">India</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Many Sources</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">604</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-danger fs-base">
-																<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>8.3%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex flex-stack">
-													<!--begin::Flag-->
-													<img src="assets/media/flags/sweden.svg" class="me-4 w-25px" style="border-radius: 4px" alt="" />
-													<!--end::Flag-->
-													<!--begin::Section-->
-													<div class="d-flex flex-stack flex-row-fluid d-grid gap-2">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Sweden</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Info-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-6 me-3 d-block">237</span>
-															<!--end::Number-->
-															<!--begin::Label-->
-															<div class="m-0">
-																<!--begin::Label-->
-																<span class="badge badge-light-success fs-base">
-																<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>1.9%</span>
-																<!--end::Label-->
-															</div>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Section-->
-												</div>
-												<!--end::Item-->
-											</div>
-											<!--end::Items-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::LIst widget 8-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-xl-10">
-									<!--begin::List widget 9-->
-									<div class="card card-flush h-xl-100">
-										<!--begin::Header-->
-										<div class="card-header py-7">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-gray-800">Social Network Visits</span>
-												<span class="text-gray-400 mt-1 fw-semibold fs-6">8k social visitors</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<a href="#" class="btn btn-sm btn-light">View All</a>
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body card-body d-flex justify-content-between flex-column pt-3">
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
+												<!--begin::Accordion-->
 												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Dribbble</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Community</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">579</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>2.6%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-											<!--begin::Separator-->
-											<div class="separator separator-dashed my-3"></div>
-											<!--end::Separator-->
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/linkedin-1.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Linked In</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Media</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">2,588</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-danger fs-base">
-															<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.4%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-											<!--begin::Separator-->
-											<div class="separator separator-dashed my-3"></div>
-											<!--end::Separator-->
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/slack-icon.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Slack</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Messanger</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.2%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-											<!--begin::Separator-->
-											<div class="separator separator-dashed my-3"></div>
-											<!--end::Separator-->
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/youtube-3.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">YouTube</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Video Channel</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">1,578</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>4.1%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-											<!--begin::Separator-->
-											<div class="separator separator-dashed my-3"></div>
-											<!--end::Separator-->
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Instagram</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">3,458</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>8.3%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-											<!--begin::Separator-->
-											<div class="separator separator-dashed my-3"></div>
-											<!--end::Separator-->
-											<!--begin::Item-->
-											<div class="d-flex flex-stack">
-												<!--begin::Flag-->
-												<img src="assets/media/svg/brand-logos/facebook-3.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-												<!--end::Flag-->
-												<!--begin::Section-->
-												<div class="d-flex align-items-center flex-stack flex-wrap flex-row-fluid d-grid gap-2">
-													<!--begin::Content-->
-													<div class="me-5">
-														<!--begin::Title-->
-														<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Facebook</a>
-														<!--end::Title-->
-														<!--begin::Desc-->
-														<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-														<!--end::Desc-->
-													</div>
-													<!--end::Content-->
-													<!--begin::Wrapper-->
-													<div class="d-flex align-items-center">
-														<!--begin::Number-->
-														<span class="text-gray-800 fw-bold fs-4 me-3">2,047</span>
-														<!--end::Number-->
-														<!--begin::Info-->
-														<div class="m-0">
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>1.9%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Info-->
-													</div>
-													<!--end::Wrapper-->
-												</div>
-												<!--end::Section-->
-											</div>
-											<!--end::Item-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::List widget 9-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-4 mb-5 mb-xl-10">
-									<!--begin::Chart widget 14-->
-									<div class="card card-flush h-xl-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-dark">Departments</span>
-												<span class="text-gray-400 pt-2 fw-semibold fs-6">Performance & achievements</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu 3-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+												<div class="m-0">
 													<!--begin::Heading-->
-													<div class="menu-item px-3">
-														<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+													<div class="d-flex align-items-center collapsible py-3 toggle mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_1">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How does it work?</h4>
+														<!--end::Title-->
 													</div>
 													<!--end::Heading-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Create Invoice</a>
+													<!--begin::Body-->
+													<div id="kt_job_4_1" class="collapse show fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
 													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link flex-stack px-3">Create Payment
-														<span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
-															<i class="ki-duotone ki-information fs-6">
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_2">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
 																<span class="path1"></span>
 																<span class="path2"></span>
 																<span class="path3"></span>
 															</i>
-														</span></a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Generate Bill</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-														<a href="#" class="menu-link px-3">
-															<span class="menu-title">Subscription</span>
-															<span class="menu-arrow"></span>
-														</a>
-														<!--begin::Menu sub-->
-														<div class="menu-sub menu-sub-dropdown w-175px py-4">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Plans</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Billing</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Statements</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu separator-->
-															<div class="separator my-2"></div>
-															<!--end::Menu separator-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<div class="menu-content px-3">
-																	<!--begin::Switch-->
-																	<label class="form-check form-switch form-check-custom form-check-solid">
-																		<!--begin::Input-->
-																		<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-																		<!--end::Input-->
-																		<!--end::Label-->
-																		<span class="form-check-label text-muted fs-6">Recuring</span>
-																		<!--end::Label-->
-																	</label>
-																	<!--end::Switch-->
-																</div>
-															</div>
-															<!--end::Menu item-->
 														</div>
-														<!--end::Menu sub-->
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">Do I need a designer to use Admin Theme ?</h4>
+														<!--end::Title-->
 													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3 my-1">
-														<a href="#" class="menu-link px-3">Settings</a>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_4_2" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
 													</div>
-													<!--end::Menu item-->
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
 												</div>
-												<!--end::Menu 3-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body pt-5">
-											<!--begin::Chart container-->
-											<div id="kt_charts_widget_14_chart" class="w-100 h-350px"></div>
-											<!--end::Chart container-->
-										</div>
-										<!--end::Body-->
-									</div>
-									<!--end::Chart widget 14-->
-								</div>
-								<!--end::Col-->
-							</div>
-							<!--end::Row-->
-							<!--begin::Row-->
-							<div class="row g-5 g-xl-10 g-xl-10">
-								<!--begin::Col-->
-								<div class="col-xl-4">
-									<!--begin::List widget 12-->
-									<div class="card card-flush h-xl-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
-											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-gray-800">Visits by Source</span>
-												<span class="text-gray-400 mt-1 fw-semibold fs-6">29.4k visitors</span>
-											</h3>
-											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu 2-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mb-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Ticket</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Customer</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-														<!--begin::Menu item-->
-														<a href="#" class="menu-link px-3">
-															<span class="menu-title">New Group</span>
-															<span class="menu-arrow"></span>
-														</a>
-														<!--end::Menu item-->
-														<!--begin::Menu sub-->
-														<div class="menu-sub menu-sub-dropdown w-175px py-4">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Admin Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Staff Group</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3">Member Group</a>
-															</div>
-															<!--end::Menu item-->
-														</div>
-														<!--end::Menu sub-->
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">New Contact</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu separator-->
-													<div class="separator mt-3 opacity-75"></div>
-													<!--end::Menu separator-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<div class="menu-content px-3 py-3">
-															<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
-														</div>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu 2-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
-										</div>
-										<!--end::Header-->
-										<!--begin::Body-->
-										<div class="card-body d-flex align-items-end">
-											<!--begin::Wrapper-->
-											<div class="w-100">
-												<!--begin::Item-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-30px me-5">
-														<span class="symbol-label">
-															<i class="ki-duotone ki-rocket fs-3 text-gray-600">
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_3">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
 																<span class="path1"></span>
 																<span class="path2"></span>
 															</i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Container-->
-													<div class="d-flex align-items-center flex-stack flex-wrap d-grid gap-1 flex-row-fluid">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Direct Source</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Direct link clicks</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">1,067</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>2.6%</span>
-															<!--end::label-->
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Container-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-30px me-5">
-														<span class="symbol-label">
-															<i class="ki-duotone ki-tiktok fs-3 text-gray-600">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Container-->
-													<div class="d-flex align-items-center flex-stack flex-wrap d-grid gap-1 flex-row-fluid">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Social Networks</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">All Social Channels</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">24,588</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>4.1%</span>
-															<!--end::label-->
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Container-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-30px me-5">
-														<span class="symbol-label">
-															<i class="ki-duotone ki-sms fs-3 text-gray-600">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Container-->
-													<div class="d-flex align-items-center flex-stack flex-wrap d-grid gap-1 flex-row-fluid">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Email Newsletter</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Mailchimp Campaigns</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.2%</span>
-															<!--end::label-->
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
-													</div>
-													<!--end::Container-->
-												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-30px me-5">
-														<span class="symbol-label">
-															<i class="ki-duotone ki-icon fs-3 text-gray-600">
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
 																<span class="path1"></span>
 																<span class="path2"></span>
 																<span class="path3"></span>
 															</i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Container-->
-													<div class="d-flex align-items-center flex-stack flex-wrap d-grid gap-1 flex-row-fluid">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Referrals</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Impact Radius visits</span>
-															<!--end::Desc-->
 														</div>
-														<!--end::Content-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">6,578</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<!--begin::label-->
-															<span class="badge badge-light-danger fs-base">
-															<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>0.4%</span>
-															<!--end::label-->
-															<!--end::Info-->
-														</div>
-														<!--end::Wrapper-->
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">What do I need to do to start selling?</h4>
+														<!--end::Title-->
 													</div>
-													<!--end::Container-->
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_4_3" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
 												</div>
-												<!--end::Item-->
-												<!--begin::Separator-->
-												<div class="separator separator-dashed my-3"></div>
-												<!--end::Separator-->
-												<!--begin::Item-->
-												<div class="d-flex align-items-center">
-													<!--begin::Symbol-->
-													<div class="symbol symbol-30px me-5">
-														<span class="symbol-label">
-															<i class="ki-duotone ki-abstract-25 fs-3 text-gray-600">
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_4_4">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
 																<span class="path1"></span>
 																<span class="path2"></span>
 															</i>
-														</span>
-													</div>
-													<!--end::Symbol-->
-													<!--begin::Container-->
-													<div class="d-flex align-items-center flex-stack flex-wrap d-grid gap-1 flex-row-fluid">
-														<!--begin::Content-->
-														<div class="me-5">
-															<!--begin::Title-->
-															<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Other</a>
-															<!--end::Title-->
-															<!--begin::Desc-->
-															<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Many Sources</span>
-															<!--end::Desc-->
-														</div>
-														<!--end::Content-->
-														<!--begin::Wrapper-->
-														<div class="d-flex align-items-center">
-															<!--begin::Number-->
-															<span class="text-gray-800 fw-bold fs-4 me-3">79,458</span>
-															<!--end::Number-->
-															<!--begin::Info-->
-															<!--begin::label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
 																<span class="path1"></span>
 																<span class="path2"></span>
-															</i>8.3%</span>
-															<!--end::label-->
-															<!--end::Info-->
+																<span class="path3"></span>
+															</i>
 														</div>
-														<!--end::Wrapper-->
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How much does Extended license cost?</h4>
+														<!--end::Title-->
 													</div>
-													<!--end::Container-->
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_4_4" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
 												</div>
-												<!--end::Item-->
-												<!--begin::Link-->
-												<div class="text-center pt-8 d-1">
-													<a href="../../demo11/dist/apps/ecommerce/sales/details.html" class="text-primary opacity-75-hover fs-6 fw-bold">View Admin Dashboard
-													<i class="ki-duotone ki-arrow-right fs-3 text-primary">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i></a>
-												</div>
-												<!--end::Link-->
+												<!--end::Section-->
+												<!--end::Accordion-->
 											</div>
-											<!--end::Wrapper-->
+											<!--end::Col-->
+											<!--begin::Col-->
+											<div class="col-md-6 ps-md-10">
+												<!--begin::Title-->
+												<h2 class="text-gray-800 fw-bold mb-4">Installation</h2>
+												<!--end::Title-->
+												<!--begin::Accordion-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_5_1">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">What platforms are compatible?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_5_1" class="collapse show fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_5_2">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How many people can it support?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_5_2" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_5_3">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How long is the warrianty?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_5_3" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_5_4">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How fast is the installation?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_5_4" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+												</div>
+												<!--end::Section-->
+												<!--end::Accordion-->
+											</div>
+											<!--end::Col-->
 										</div>
-										<!--end::Body-->
+										<!--end::Row-->
+										<!--begin::Row-->
+										<div class="row">
+											<!--begin::Col-->
+											<div class="col-md-6 pe-md-10 mb-10 mb-md-0">
+												<!--begin::Title-->
+												<h2 class="text-gray-800 w-bolder mb-4">User Roles</h2>
+												<!--end::Title-->
+												<!--begin::Accordion-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_6_1">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How does it work?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_6_1" class="collapse show fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_6_2">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">Do I need a designer to use this Admin Theme?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_6_2" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_6_3">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">What do I need to do to start selling?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_6_3" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_6_4">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How much does Extended license cost?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_6_4" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+												</div>
+												<!--end::Section-->
+												<!--end::Accordion-->
+											</div>
+											<!--end::Col-->
+											<!--begin::Col-->
+											<div class="col-md-6 ps-md-10">
+												<!--begin::Title-->
+												<h2 class="text-gray-800 fw-bold mb-4">Reports Generation</h2>
+												<!--end::Title-->
+												<!--begin::Accordion-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_7_1">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">What platforms are compatible?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_7_1" class="collapse show fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_7_2">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How many people can it support?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_7_2" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_7_3">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How long is the warrianty?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_7_3" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed"></div>
+													<!--end::Separator-->
+												</div>
+												<!--end::Section-->
+												<!--begin::Section-->
+												<div class="m-0">
+													<!--begin::Heading-->
+													<div class="d-flex align-items-center collapsible py-3 toggle collapsed mb-0" data-bs-toggle="collapse" data-bs-target="#kt_job_7_4">
+														<!--begin::Icon-->
+														<div class="btn btn-sm btn-icon mw-20px btn-active-color-primary me-5">
+															<i class="ki-duotone ki-minus-square toggle-on text-primary fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<i class="ki-duotone ki-plus-square toggle-off fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</div>
+														<!--end::Icon-->
+														<!--begin::Title-->
+														<h4 class="text-gray-700 fw-bold cursor-pointer mb-0">How fast is the installation?</h4>
+														<!--end::Title-->
+													</div>
+													<!--end::Heading-->
+													<!--begin::Body-->
+													<div id="kt_job_7_4" class="collapse fs-6 ms-1">
+														<!--begin::Text-->
+														<div class="mb-4 text-gray-600 fw-semibold fs-6 ps-10">First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words as per minute and your writing skills are sharp.</div>
+														<!--end::Text-->
+													</div>
+													<!--end::Content-->
+												</div>
+												<!--end::Section-->
+												<!--end::Accordion-->
+											</div>
+											<!--end::Col-->
+										</div>
+										<!--end::Row-->
 									</div>
-									<!--end::List widget 12-->
-								</div>
-								<!--end::Col-->
-								<!--begin::Col-->
-								<div class="col-xl-8">
-									<!--begin::Chart widget 15-->
-									<div class="card card-flush h-xl-100">
-										<!--begin::Header-->
-										<div class="card-header pt-7">
+									<!--end::Classic content-->
+									<!--begin::Section-->
+									<div class="mb-17">
+										<!--begin::Content-->
+										<div class="d-flex flex-stack mb-5">
 											<!--begin::Title-->
-											<h3 class="card-title align-items-start flex-column">
-												<span class="card-label fw-bold text-dark">Author Sales</span>
-												<span class="text-gray-400 pt-2 fw-semibold fs-6">Statistics by Countries</span>
-											</h3>
+											<h3 class="text-dark">Video Tutorials</h3>
 											<!--end::Title-->
-											<!--begin::Toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Menu-->
-												<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
-													<i class="ki-duotone ki-dots-square fs-1 text-gray-400 me-n1">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-													</i>
-												</button>
-												<!--begin::Menu-->
-												<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4" data-kt-menu="true">
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Remove</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Mute</a>
-													</div>
-													<!--end::Menu item-->
-													<!--begin::Menu item-->
-													<div class="menu-item px-3">
-														<a href="#" class="menu-link px-3">Settings</a>
-													</div>
-													<!--end::Menu item-->
-												</div>
-												<!--end::Menu-->
-												<!--end::Menu-->
-											</div>
-											<!--end::Toolbar-->
+											<!--begin::Link-->
+											<a href="#" class="fs-6 fw-semibold link-primary">View All Videos</a>
+											<!--end::Link-->
 										</div>
-										<!--end::Header-->
+										<!--end::Content-->
+										<!--begin::Separator-->
+										<div class="separator separator-dashed mb-9"></div>
+										<!--end::Separator-->
+										<!--begin::Row-->
+										<div class="row g-10">
+											<!--begin::Col-->
+											<div class="col-md-4">
+												<!--begin::Feature post-->
+												<div class="card-xl-stretch me-md-6">
+													<!--begin::Image-->
+													<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('assets/media/stock/600x400/img-73.jpg')" data-fslightbox="lightbox-video-tutorials" href="https://www.youtube.com/embed/btornGtLwIo">
+														<img src="assets/media/svg/misc/video-play.svg" class="position-absolute top-50 start-50 translate-middle" alt="" />
+													</a>
+													<!--end::Image-->
+													<!--begin::Body-->
+													<div class="m-0">
+														<!--begin::Title-->
+														<a href="../../demo11/dist/pages/user-profile/overview.html" class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base">Admin Panel - How To Started the Dashboard Tutorial</a>
+														<!--end::Title-->
+														<!--begin::Text-->
+														<div class="fw-semibold fs-5 text-gray-600 text-dark my-4">We’ve been focused on making a the from also not been afraid to and step away been focused create eye</div>
+														<!--end::Text-->
+														<!--begin::Content-->
+														<div class="fs-6 fw-bold">
+															<!--begin::Author-->
+															<a href="../../demo11/dist/pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">Jane Miller</a>
+															<!--end::Author-->
+															<!--begin::Date-->
+															<span class="text-muted">on Mar 21 2021</span>
+															<!--end::Date-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Body-->
+												</div>
+												<!--end::Feature post-->
+											</div>
+											<!--end::Col-->
+											<!--begin::Col-->
+											<div class="col-md-4">
+												<!--begin::Feature post-->
+												<div class="card-xl-stretch mx-md-3">
+													<!--begin::Image-->
+													<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('assets/media/stock/600x400/img-74.jpg')" data-fslightbox="lightbox-video-tutorials" href="https://www.youtube.com/embed/btornGtLwIo">
+														<img src="assets/media/svg/misc/video-play.svg" class="position-absolute top-50 start-50 translate-middle" alt="" />
+													</a>
+													<!--end::Image-->
+													<!--begin::Body-->
+													<div class="m-0">
+														<!--begin::Title-->
+														<a href="../../demo11/dist/pages/user-profile/overview.html" class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base">Admin Panel - How To Started the Dashboard Tutorial</a>
+														<!--end::Title-->
+														<!--begin::Text-->
+														<div class="fw-semibold fs-5 text-gray-600 text-dark my-4">We’ve been focused on making the from v4 to v5 but we have also not been afraid to step away been focused</div>
+														<!--end::Text-->
+														<!--begin::Content-->
+														<div class="fs-6 fw-bold">
+															<!--begin::Author-->
+															<a href="../../demo11/dist/pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">Cris Morgan</a>
+															<!--end::Author-->
+															<!--begin::Date-->
+															<span class="text-muted">on Apr 14 2021</span>
+															<!--end::Date-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Body-->
+												</div>
+												<!--end::Feature post-->
+											</div>
+											<!--end::Col-->
+											<!--begin::Col-->
+											<div class="col-md-4">
+												<!--begin::Feature post-->
+												<div class="card-xl-stretch ms-md-6">
+													<!--begin::Image-->
+													<a class="d-block bgi-no-repeat bgi-size-cover bgi-position-center card-rounded position-relative min-h-175px mb-5" style="background-image:url('assets/media/stock/600x400/img-47.jpg')" data-fslightbox="lightbox-video-tutorials" href="https://www.youtube.com/embed/TWdDZYNqlg4">
+														<img src="assets/media/svg/misc/video-play.svg" class="position-absolute top-50 start-50 translate-middle" alt="" />
+													</a>
+													<!--end::Image-->
+													<!--begin::Body-->
+													<div class="m-0">
+														<!--begin::Title-->
+														<a href="../../demo11/dist/pages/user-profile/overview.html" class="fs-4 text-dark fw-bold text-hover-primary text-dark lh-base">Admin Panel - How To Started the Dashboard Tutorial</a>
+														<!--end::Title-->
+														<!--begin::Text-->
+														<div class="fw-semibold fs-5 text-gray-600 text-dark my-4">We’ve been focused on making the from v4 to v5 but we’ve also not been afraid to step away been focused</div>
+														<!--end::Text-->
+														<!--begin::Content-->
+														<div class="fs-6 fw-bold">
+															<!--begin::Author-->
+															<a href="../../demo11/dist/pages/user-profile/overview.html" class="text-gray-700 text-hover-primary">Carles Nilson</a>
+															<!--end::Author-->
+															<!--begin::Date-->
+															<span class="text-muted">on May 14 2021</span>
+															<!--end::Date-->
+														</div>
+														<!--end::Content-->
+													</div>
+													<!--end::Body-->
+												</div>
+												<!--end::Feature post-->
+											</div>
+											<!--end::Col-->
+										</div>
+										<!--end::Row-->
+									</div>
+									<!--end::Section-->
+									<!--begin::Card-->
+									<div class="card mb-4 bg-light text-center">
 										<!--begin::Body-->
-										<div class="card-body pt-5">
-											<!--begin::Chart container-->
-											<div id="kt_charts_widget_15_chart" class="min-h-auto ps-4 pe-6 mb-3 h-350px"></div>
-											<!--end::Chart container-->
+										<div class="card-body py-12">
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/github.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/behance.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/pinterest-p.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/twitter.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
+											<!--begin::Icon-->
+											<a href="#" class="mx-4">
+												<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-30px my-2" alt="" />
+											</a>
+											<!--end::Icon-->
 										</div>
 										<!--end::Body-->
 									</div>
-									<!--end::Chart widget 15-->
+									<!--end::Card-->
 								</div>
-								<!--end::Col-->
+								<!--end::Body-->
 							</div>
-							<!--end::Row-->
+							<!--end::FAQ card-->
 						</div>
 						<!--end::Post-->
 					</div>
@@ -4255,511 +2986,6 @@
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Create App-->
-		<!--begin::Modal - View Users-->
-		<div class="modal fade" id="kt_modal_view_users" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog mw-650px">
-				<!--begin::Modal content-->
-				<div class="modal-content">
-					<!--begin::Modal header-->
-					<div class="modal-header pb-0 border-0 justify-content-end">
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--begin::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
-						<!--begin::Heading-->
-						<div class="text-center mb-13">
-							<!--begin::Title-->
-							<h1 class="mb-3">Browse Users</h1>
-							<!--end::Title-->
-							<!--begin::Description-->
-							<div class="text-muted fw-semibold fs-5">If you need more info, please check out our
-							<a href="#" class="link-primary fw-bold">Users Directory</a>.</div>
-							<!--end::Description-->
-						</div>
-						<!--end::Heading-->
-						<!--begin::Users-->
-						<div class="mb-15">
-							<!--begin::List-->
-							<div class="mh-375px scroll-y me-n7 pe-7">
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma Smith
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Art Director</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">smith@kpmg.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$23,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Melody Macy
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Marketing Analytic</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">melody@altbox.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$50,500</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Max Smith
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Software Enginer</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">max@kt.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$75,900</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Sean Bean
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Web Developer</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">sean@dellito.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$10,500</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Brian Cox
-											<span class="badge badge-light fs-8 fw-semibold ms-2">UI/UX Designer</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">brian@exchange.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$20,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-warning text-warning fw-semibold">C</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Mikaela Collins
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Head Of Marketing</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">mik@pex.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$9,300</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Francis Mitcham
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Software Arcitect</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">f.mit@kpmg.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$15,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Olivia Wild
-											<span class="badge badge-light fs-8 fw-semibold ms-2">System Admin</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">olivia@corpmail.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$23,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-primary text-primary fw-semibold">N</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Neil Owen
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Account Manager</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">owen.neil@gmail.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$45,800</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Dan Wilson
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Web Desinger</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">dam@consilting.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$90,500</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma Bold
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Corporate Finance</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">emma@intenso.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$5,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5 border-bottom border-gray-300 border-bottom-dashed">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Ana Crown
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Customer Relationship</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">ana.cf@limtel.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$70,000</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-								<!--begin::User-->
-								<div class="d-flex flex-stack py-5">
-									<!--begin::Details-->
-									<div class="d-flex align-items-center">
-										<!--begin::Avatar-->
-										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
-										</div>
-										<!--end::Avatar-->
-										<!--begin::Details-->
-										<div class="ms-6">
-											<!--begin::Name-->
-											<a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Robert Doe
-											<span class="badge badge-light fs-8 fw-semibold ms-2">Marketing Executive</span></a>
-											<!--end::Name-->
-											<!--begin::Email-->
-											<div class="fw-semibold text-muted">robert@benko.com</div>
-											<!--end::Email-->
-										</div>
-										<!--end::Details-->
-									</div>
-									<!--end::Details-->
-									<!--begin::Stats-->
-									<div class="d-flex">
-										<!--begin::Sales-->
-										<div class="text-end">
-											<div class="fs-5 fw-bold text-dark">$45,500</div>
-											<div class="fs-7 text-muted">Sales</div>
-										</div>
-										<!--end::Sales-->
-									</div>
-									<!--end::Stats-->
-								</div>
-								<!--end::User-->
-							</div>
-							<!--end::List-->
-						</div>
-						<!--end::Users-->
-						<!--begin::Notice-->
-						<div class="d-flex justify-content-between">
-							<!--begin::Label-->
-							<div class="fw-semibold">
-								<label class="fs-6">Adding Users by Team Members</label>
-								<div class="fs-7 text-muted">If you need more info, please check budget planning</div>
-							</div>
-							<!--end::Label-->
-							<!--begin::Switch-->
-							<label class="form-check form-switch form-check-custom form-check-solid">
-								<input class="form-check-input" type="checkbox" value="" checked="checked" />
-								<span class="form-check-label fw-semibold text-muted">Allowed</span>
-							</label>
-							<!--end::Switch-->
-						</div>
-						<!--end::Notice-->
-					</div>
-					<!--end::Modal body-->
-				</div>
-				<!--end::Modal content-->
-			</div>
-			<!--end::Modal dialog-->
-		</div>
-		<!--end::Modal - View Users-->
 		<!--begin::Modal - Users Search-->
 		<div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
@@ -5496,13 +3722,13 @@
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+													<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
-													<div class="fw-semibold text-muted">max@kt.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+													<div class="fw-semibold text-muted">robert@benko.com</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -6059,13 +4285,13 @@
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+											<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-											<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+											<div class="fw-semibold text-muted">melody@altbox.com</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -6108,9 +4334,9 @@
 			</div>
 			<!--end::Modal dialog-->
 		</div>
-
-@endsection
-<!--begin::Javascript-->
+		<!--end::Modal - Invite Friend-->
+		<!--end::Modals-->
+		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
 		<script src="assets/plugins/global/plugins.bundle.js"></script>
@@ -6118,18 +4344,6 @@
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-		<script src="assets/plugins/custom/vis-timeline/vis-timeline.bundle.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
 		<script src="assets/js/widgets.bundle.js"></script>
@@ -6139,3 +4353,7 @@
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
+@endsection

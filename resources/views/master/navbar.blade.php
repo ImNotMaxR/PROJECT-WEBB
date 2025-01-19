@@ -1,3 +1,4 @@
+
 <!--begin::Container-->
 <div class="header-menu-container container-xxl d-flex flex-stack h-lg-75px w-100" id="kt_header_nav">
     <!--begin::Menu wrapper-->
@@ -14,7 +15,6 @@
                 <!--begin:Menu link-->
                 <a href="{{ route('home') }}" class="menu-link py-3">
                     <span class="menu-title">Beranda</span>
-                    <span class="menu-arrow d-lg-none"></span>
                 </a>
                 <!--end:Menu link-->
             </div>
@@ -25,48 +25,94 @@
                 <!--begin:Menu link-->
                 <a href="" class="menu-link py-3">
                     <span class="menu-title">Pinjam Buku</span>
-                    <span class="menu-arrow d-lg-none"></span>
                 </a>
                 <!--end:Menu link-->
             </div>
             <!--end:Menu item-->
-
-            @if (Auth::check() && Auth::user()->role === 'admin')  
-            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"  
-                 data-kt-menu-placement="bottom-start"  
-                 class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">      
-                <a href="{{ route('admin.dashboard') }}" class="menu-link py-3">      
-                    <span class="menu-title">Dashboard</span>      
-                    <span class="menu-arrow d-lg-none"></span>      
-                </a>      
-                <!--begin::Menu sub-->  
-                <div class="menu-sub menu-sub-dropdown w-175px py-4">  
-                    <!--begin::Menu item-->  
-                    <div class="menu-item px-3">  
-                        <a href="{{ route('admin.dashboard') }}" class="menu-link px-3">Admin Dashboard</a>  
-                    </div>  
-                    <!--end::Menu item-->  
-                    <!--begin::Menu item-->  
-                    <div class="menu-item px-3">  
-                        <a href="{{ route('users.index') }}" class="menu-link px-3">Kelola User</a>  
-                    </div>  
-                    <!--end::Menu item--> 
-                    <!--begin::Menu item-->  
-                    <div class="menu-item px-3">  
-                        <a href="{{ route('buku.index') }}" class="menu-link px-3">Kelola Buku</a>  
-                    </div>  
-                    <!--end::Menu item-->  
-                    <!--begin::Menu item-->  
-                    <div class="menu-item px-3">  
-                        <a href="{{ route('kategori.index') }}" class="menu-link px-3">Kelola Kategori</a>  
-                    </div>  
-                    <!--end::Menu item-->  
-                </div>  
-                <!--end::Menu sub-->  
-            </div>  
-        @endif  
-
-        
+            @if (Auth::check() && Auth::user()->role === 'admin')
+            <!--begin:Menu item-->
+            <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" 
+                 data-kt-menu-placement="bottom-start" 
+                 class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+                <!--begin:Menu link-->
+                <span class="menu-link py-3">
+                    <span class="menu-title">Dashboard</span>
+                    <span class="menu-arrow d-lg-none"></span>
+                </span>
+                <!--end:Menu link-->
+                <!--begin:Menu sub-->
+                <div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link py-3" href="{{ route('admin.dashboard') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-abstract-26">
+     <span class="path1"></span>
+     <span class="path2"></span>
+    </i>
+                            </span>
+                            <span class="menu-title">Admin Dashboard</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+            
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link py-3" href="{{ route('member.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-profile-user fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Kelola User</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+            
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link py-3" href="{{ route('buku.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-book fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Kelola Buku</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+            
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
+                        <a class="menu-link py-3" href="{{ route('kategori.index') }}">
+                            <span class="menu-icon">
+                                <i class="ki-duotone ki-category fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Kelola Kategori</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                </div>
+                <!--end:Menu sub-->
+            </div>
+            <!--end:Menu item-->
+            @endif
         
 
         
@@ -80,3 +126,4 @@
 </div>
 </div>
 <!--end::Container-->
+

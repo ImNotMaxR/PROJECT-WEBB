@@ -8,16 +8,10 @@ use App\Models\User;
 
 class UserController extends Controller  
 {  
-    public function __construct()  
-    {  
-        $this->middleware('auth'); // Pastikan hanya pengguna yang terautentikasi yang dapat mengakses  
-        $this->middleware('admin'); // Middleware untuk memastikan hanya admin yang dapat mengakses  
-    }  
-
     public function index()  
     {  
         $users = User::all();  
-        return view('users.index', compact('users'));  
+        return view('member.index', compact('users'));  
     }  
 
     public function create()  
@@ -40,12 +34,12 @@ class UserController extends Controller
             'role' => 'user', // Atur role default  
         ]);  
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');  
+        return redirect()->route('member.index')->with('success', 'User created successfully.');  
     }  
 
     public function edit(User $user)  
     {  
-        return view('users.edit', compact('user'));  
+        return view('member.edit', compact('user'));  
     }  
 
     public function update(Request $request, User $user)  

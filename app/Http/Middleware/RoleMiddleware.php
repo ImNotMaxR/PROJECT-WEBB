@@ -8,30 +8,25 @@ use Illuminate\Support\Facades\Auth;
 
 class RoleMiddleware
 {
-    /**  
-     * Handle an incoming request.  
-     *  
-     * @param  \Illuminate\Http\Request  $request  
-     * @param  \Closure  $next  
-     * @param  string  $role  
-     * @return mixed  
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, $role)
+    public function handle($request, Closure $next, ...$roles)
     {
-        // Check if the user is authenticated  
-        if (!Auth::check()) {
-            return redirect('/login'); // Redirect to login if not authenticated  
+        $user = Auth::user();
+
+        // Periksa apakah pengguna memiliki role yang diizinkan
+        if (!$user || !in_array($user->role, $roles)) {
+            $message = $user
+                ? "Role Anda ({$user->role}) tidak memiliki izin untuk mengakses halaman ini."
+                : "Anda belum login.";
+            abort(403, $message);
         }
 
-        // Get the authenticated user's role  
-        $userRole = Auth::user()->role;
-
-        // Check if the authenticated user has the required role  
-        if ($userRole === $role) {
-            return $next($request); // Allow access to the dashboard  
-        }
-
-        // Redirect to home if the role does not match  
-        return redirect(route('home'));
+        return $next($request);
     }
 }
