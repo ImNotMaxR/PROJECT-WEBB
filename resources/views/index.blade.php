@@ -26,11 +26,18 @@
                             <span class="card-label fw-bold text-dark">Katalog Buku</span>
                         </h2>
                         <!--end::Title-->
-                        <!--begin::search books-->
-                        <form action="{{ route('bukus.index') }}" method="GET" class="d-flex"> <input type="text"
-                                name="search" class="form-control" placeholder="Search books..."
-                                aria-label="Search books"> <button type="submit"
-                                class="btn btn-primary ms-2">Search</button> </form>
+<!-- Search books form -->
+<form action="{{ route('bukus.index') }}" method="GET" class="d-flex">
+    <input 
+        type="text" 
+        name="search" 
+        class="form-control" 
+        placeholder="Cari Buku..." 
+        aria-label="Search books" 
+        value="{{ request('search') }}">
+    <button type="submit" class="btn btn-primary ms-2">Cari</button>
+</form>
+
                         <!--end::search books-->
 
 
@@ -44,7 +51,6 @@
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <!--begin::Book card-->
                                 <div class="card" id="poto">
-                                    <a href="{{ route('bukus.show', $buku->id) }}">
                                         <div class="card-body p-0">
                                             <div class="bgi-position-center bgi-no-repeat bgi-size-cover h-200px"
                                                 style="background-image:url('{{ Storage::url($buku->foto) }}');">
@@ -52,12 +58,13 @@
                                         </div>
                                     </a>
                                     <div class="card-footer">
-                                        <h4><a href="{{ route('bukus.show', $buku->id) }}"
-                                                class="text-gray-800 text-hover-primary">{{ $buku->judul }}</a></h4>
+                                        <h4><div
+                                                class="text-gray-800">{{ $buku->judul }}</div></h4>
                                         @if(isset($buku->penulis))
                                         <span
                                             class="fw-bold fs-6 text-gray-400 d-block lh-1">{{ $buku->penulis }}</span>
-                                        @endif
+                                            <a class="btn btn-primary hover" style="float: right;" href="{{ route('bukus.show', $buku->id) }}">Lihat Buku Ini</a>
+                                            @endif
                                     </div>
                                 </div>
                                 <!--end::Book card-->
