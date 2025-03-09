@@ -1,7 +1,7 @@
 <?php  
   
 use App\Http\Controllers\ProfileController;  
-use App\Http\Controllers\AdminController;  
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\LandingController;  
 use App\Http\Controllers\BukuController;  
 use App\Http\Controllers\UserController;
@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
   
 // Public routes (akses untuk semua pengguna, termasuk non-user)  
 Route::prefix('/')->group(function () {
-Route::get('/', [BukuController::class, 'index'])->name('home');  
-Route::get('home', [BukuController::class, 'index'])->name('home');  
-Route::get('/bukus', [BukuController::class, 'index'])->name('bukus.index'); 
-Route::get('/menu/contact-us', [LandingController::class, 'contactUs'])->name('contact.us');  
-Route::get('/menu/faq', [LandingController::class, 'faq'])->name('faq');  
-Route::get('/menu/help-center', [LandingController::class, 'helpCenter'])->name('help.center');  
-  
+Route::get('/', [LandingController::class, 'index'])->name('home');  
+Route::get('home', [LandingController::class, 'index'])->name('home');  
+Route::get('/bukus', [LandingController::class, 'index'])->name('bukus.index'); 
+});
+
+Route::prefix('menu')->group(function () {
+Route::get('contact-us', [MenuController::class, 'contactUs'])->name('menu.contactus');  
+Route::get('faq', [MenuController::class, 'faq'])->name('menu.faq');  
+Route::get('help-center', [MenuController::class, 'helpCenter'])->name('menu.help-center');  
 });
 
 // Authenticated User Routes (akses untuk user yang login)  
@@ -51,21 +53,15 @@ Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'Dashboard'])->name('admin.dashboard');   
   
 
-    // Profile routes  
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');  
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');  
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');  
-
-
   
     // Buku management routes for admin  
     Route::prefix('buku')->group(function () {
-    Route::get('/', [BukuController::class, 'crud'])->name('buku.index');  
+    Route::get('/', [BukuController::class, 'index'])->name('buku.index');  
     Route::post('/', [BukuController::class, 'store'])->name('buku.store');  
     Route::get('/create', [BukuController::class, 'create'])->name('buku.create');  
     Route::get('/edit/{id}', [BukuController::class, 'edit'])->name('buku.edit');  
     Route::put('/update/{id}', [BukuController::class, 'update'])->name('buku.update');  
-    Route::delete('/destroy/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');  
+    Route::get('/destroy/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');  
     Route::get('/datatables', [BukuController::class, 'datatables'])->name('buku.datatables');  
 
     //konfirmasi peminjaman
@@ -95,7 +91,7 @@ Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name('member.edit');   
         Route::get('/create', [UserController::class, 'create'])->name('member.create'); 
         Route::put('/update/{id}', [UserController::class, 'update'])->name('member.update');    
-        Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('member.destroy');    
+        Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('member.destroy');    
     });  
 
 }); 

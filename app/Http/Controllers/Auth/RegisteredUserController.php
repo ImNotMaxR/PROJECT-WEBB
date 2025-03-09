@@ -46,10 +46,8 @@ class RegisteredUserController extends Controller
   
         event(new Registered($user));  
     
-        // Set a flash message to inform the user    
-        session()->flash('status', 'Akun Anda telah berhasil dibuat. Silakan masuk ke akun Anda.');    
-    
+        // Set a flash message to inform the user        
         // Redirect to the login page    
-        return redirect()->route('login');    
+        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silahkan Login');    
     }  
 }  

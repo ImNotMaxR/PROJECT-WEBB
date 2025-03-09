@@ -16,6 +16,7 @@ class PinjamController extends Controller
 
     public function userPeminjaman()
 {
+    
     $userId = Auth::id(); // Mendapatkan ID user yang sedang login
 
     // Query data peminjaman berdasarkan user yang login

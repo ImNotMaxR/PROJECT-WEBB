@@ -59,17 +59,7 @@ class BukuController extends Controller
         return view('admin.dashboard', compact('bk'));    
     }    
     
-    // Display all books on the landing page with optional search functionality    
-    public function index(Request $request) // Combine both index methods    
-    {    
-        $search = $request->get('search'); // Get the search query from the request    
-        $bukus = Buku::when($search, function ($query) use ($search) {    
-            return $query->where('judul', 'like', '%' . $search . '%'); // Filter books by title    
-        })->get(); // Fetch all books or filtered books based on search    
-    
-        return view('index', compact('bukus')); // Pass the books to the view    
-    }    
-  
+
     // Show a single book by ID    
     public function show($id)    
     {    
@@ -78,11 +68,11 @@ class BukuController extends Controller
     }    
     
     // Show the form to create a new book    
-    public function create()    
-    {    
-        $kategoris = Kategori::all(); // Fetch all categories      
-        return view('buku.create', compact('kategoris')); // Pass $kategoris to the view      
-    }    
+    public function create()
+    {
+        $kategoris = Kategori::all();
+        return view('buku.create', compact('kategoris'));
+    }
   
     public function pinjam($id)      
     {      
@@ -160,60 +150,58 @@ public function updateStatus(Request $request)
     }  
   
     // Display paginated books for the dashboard    
-    public function crud()    
+    public function index()    
     {    
         $totalBuku = Buku::count();  
   
-        // Siapkan data untuk view  
-        $data['totalBuku'] = $totalBuku;  
-  
-        return view('buku.index', $data);  
-  
-        $bk = Buku::with('kategori')->orderBy('id', 'DESC')->paginate(5);    
-        return view('buku.index', compact('bk'));    
+        // Siapkan data untuk view    
+        $buku = Buku::with('kategori')->orderBy('id', 'DESC')->paginate(5); 
+        
+        return view('buku.index', compact('buku', 'totalBuku'));    
     }    
     
     // Store a new book in the database    
-    public function store(Request $request)      
-    {      
-        try {    
-            $request->validate([      
-                'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',      
-                'judul' => 'required',      
-                'deskripsi' => 'required',      
-                'penulis' => 'required',      
-                'penerbit' => 'required',      
-                'tahun_terbit' => 'required|date',      
-                'kategori_id' => 'required',      
-                'stok' => 'required|integer'      
-            ]);      
+    public function store(Request $request)
+    {
+        // Validate the request
+        $validated = $request->validate([
+            'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'judul' => 'required',
+            'deskripsi' => 'required|max:100',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required',
+            'kategori_id' => 'required|exists:kategoris,id', // Memastikan kategori ada di DB
+            'stok' => 'required|integer|min:1'
+        ]);
+        
+
+      
+        $foto = $request->file('foto');      
+        $foto->storeAs('public/buku', $foto->hashName());      
+      
+        Buku::create([      
+            'foto' => 'buku/' . $foto->hashName(),      
+            'judul' => $request->judul,      
+            'deskripsi' => $request->deskripsi,      
+            'penulis' => $request->penulis,      
+            'penerbit' => $request->penerbit,      
+            'tahun_terbit' => $request->tahun_terbit,      
+            'kategori_id' => $request->kategori_id,      
+            'stok' => $request->stok
+        ]);      
           
-            $foto = $request->file('foto');      
-            $foto->storeAs('public/buku', $foto->hashName());      
-          
-            Buku::create([      
-                'foto' => 'buku/' . $foto->hashName(),      
-                'judul' => $request->judul,      
-                'deskripsi' => $request->deskripsi,      
-                'penulis' => $request->penulis,      
-                'penerbit' => $request->penerbit,      
-                'tahun_terbit' => $request->tahun_terbit,      
-                'kategori_id' => $request->kategori_id,      
-                'stok' => $request->stok      
-            ]);      
-          
-            return redirect()->route('buku.index')->with('success', 'Data berhasil ditambahkan');      
-        } catch (\Exception $e) {    
-            return redirect()->back()->withErrors(['error' => 'Something went wrong: ' . $e->getMessage()]);    
-        }    
+        return redirect()->route('buku.index')->with('success', 'Data berhasil ditambahkan');      
     }    
+    
+
       
     // Show the form to edit an existing book    
     public function edit($id)    
     {    
-        $buku = Buku::find($id);  // Ubah dari $bk menjadi $buku  
-        $kategori = Kategori::all();    
-        return view('buku.edit', compact('buku', 'kategori'));    
+        $buku = Buku::find($id); 
+        $kategoris = Kategori::all();    
+        return view('buku.edit', compact('buku', 'kategoris'));    
     }  
     
     // Update an existing book in the database    

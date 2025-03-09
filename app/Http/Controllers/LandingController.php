@@ -3,9 +3,26 @@
 namespace App\Http\Controllers;  
   
 use Illuminate\Http\Request;  
+use App\Models\Buku;   
+use App\Models\Peminjaman;   
   
 class LandingController extends Controller  
 {  
+
+
+        // Display all books on the landing page with optional search functionality    
+        public function index(Request $request)
+        {
+            $search = $request->input('search');
+        
+            $bukus = Buku::when($search, function ($query) use ($search) {
+                return $query->where('judul', 'like', "%$search%");
+            })->paginate(8); // Menggunakan paginate, bukan get()
+        
+            return view('index', compact('bukus'));
+        }
+        
+        
     /**  
      * Display a listing of the resource.  
      */  
@@ -55,29 +72,5 @@ class LandingController extends Controller
     public function destroy(string $id)  
     {  
         //  
-    }  
-  
-    /**  
-     * Display the contact-us page.  
-     */  
-    public function contactUs()  
-    {  
-        return view("contact-us");  
-    }  
-  
-    /**  
-     * Display the faq page.  
-     */  
-    public function faq()  
-    {  
-        return view("menu/faq");  
-    }  
-  
-    /**  
-     * Display the help-center page.  
-     */  
-    public function helpCenter()  
-    {  
-        return view("help-center");  
     }  
 }  
