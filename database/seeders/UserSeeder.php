@@ -15,10 +15,28 @@ class UserSeeder extends Seeder
     public function run(): void  
     {  
         User::create([  
+            'name' => 'superadmin',  
+            'email' => 'superadmin@gmail.com',
+            'password' => Hash::make('Maskgem12'), // Added comma here  
+            'role' => 'superadmin',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name' => 'admin',  
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('Maskgem12'), // Added comma here  
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now(), 
+        ],
+        [
             'name' => 'user',  
             'email' => 'user@gmail.com',
             'password' => Hash::make('Maskgem12'), // Added comma here  
-            'role' => 'user'  
+            'role' => 'user',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);  
     }  
 }  

@@ -15,11 +15,17 @@ class LandingController extends Controller
         {
             $search = $request->input('search');
         
+            // Ambil hanya 8 buku terbaru
             $bukus = Buku::when($search, function ($query) use ($search) {
                 return $query->where('judul', 'like', "%$search%");
-            })->paginate(8); // Menggunakan paginate, bukan get()
+            })->orderBy('created_at', 'desc') // Urutkan berdasarkan waktu pembuatan terbaru
+              ->take(8) // Ambil maksimal 8 buku
+              ->get();
         
-            return view('index', compact('bukus'));
+            // Hitung total buku untuk menentukan apakah tombol "Lihat Semua Buku" ditampilkan
+            $totalBuku = Buku::count();
+        
+            return view('index', compact('bukus', 'totalBuku'));
         }
         
         

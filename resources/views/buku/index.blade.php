@@ -142,23 +142,27 @@
                                                     </div>
                                                     <div class="d-inline-flex gap-2">
                                                         <!-- Tombol Edit -->
-                                                        <a href="{{ route('buku.edit', $item->id) }}"
+                                                        <a href="{{ route('buku.edit', $item->id) }}" 
                                                             class="btn btn-sm btn-primary d-flex align-items-center gap-1">
                                                             <i class="fa fa-pencil"></i> <span>Edit</span>
                                                         </a>
-
-
-
-
-                                                        <!-- Tombol Delete (Trigger Modal) -->
-                                                        <button type="button"
-                                                            class="btn btn-sm btn-danger d-flex align-items-center gap-1 delete-button" id="delete-buku"
-                                                            data-id="{{ $item->id }}" data-title="{{ $item->judul }}"
-                                                            data-toggle="modal" data-target="#deleteModal">
+                                                    
+                                                        <!-- Tombol Delete -->
+                                                        <button class="btn btn-sm btn-danger delete-buku" 
+                                                            data-id="{{ $item->id }}" 
+                                                            data-judul="{{ $item->judul }}">
                                                             <i class="fa fa-trash"></i> <span>Delete</span>
                                                         </button>
+                                                    
+                                                        <!-- Form delete -->
+                                                        <form id="delete-form-{{ $item->id }}" 
+                                                            action="{{ route('buku.destroy', $item->id) }}" 
+                                                            method="POST" 
+                                                            style="display: none;">
+                                                            @csrf
+                                                            @method('DELETE')
                                                         </form>
-                                                    </div>
+                                                    </div>                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -190,15 +194,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 
+   
         // Tombol delete    
         $('body').on('click', '.delete-buku', function (e) {
             e.preventDefault();
             var url = $(this).attr('href');
-            var bookTitle = $(this).data('judul'); // Get the book title from the data attribute    
+            var bookTitle = $(this).data('judul'); 
 
             Swal.fire({
                 title: 'Konfirmasi',
-                text: `Anda yakin ingin menghapus buku ini?`,
+                text: `Anda yakin ingin menghapus buku "${bookTitle}"?`,
                 icon: 'warning',
                 buttonsStyling: false,
                 showCancelButton: true,
@@ -214,6 +219,8 @@
                 }
             });
         });
+
+</script>
 
 
 </script>

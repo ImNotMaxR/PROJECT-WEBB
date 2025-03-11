@@ -151,6 +151,8 @@
 </div>
 </div>
 <!--end::Container-->
+<div class="separator border-5 border-primary"></div>
+
 
 <style>
     .menu-link.active {
@@ -166,7 +168,7 @@
 
 </style>
 
-@section('script')
+@section('')
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let currentPath = window.location.pathname; 

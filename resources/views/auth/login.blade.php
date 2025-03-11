@@ -80,11 +80,6 @@ opacity: 1;
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                                 <div>
-                                    <label for="remember_me" class="form-check-label">
-                                        <input id="remember_me" type="checkbox" name="remember"
-                                            class="form-check-input" />
-                                        Ingatkan aku
-                                    </label>
                                 </div>
                                 @if (Route::has('password.request'))
                                     <a href="{{ route('password.request') }}" class="link-primary">Lupa Password?</a>

@@ -341,7 +341,6 @@
                         </div>
                         <!--end::Container-->
                         <!--begin::Separator-->
-                        <div class="separator"></div>
                         <!--end::Separator-->
 
 

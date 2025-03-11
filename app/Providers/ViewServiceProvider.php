@@ -33,7 +33,6 @@ class ViewServiceProvider extends ServiceProvider
 
             // Daftar Breadcrumb Otomatis
 $breadcrumbList = [
-    'home' => ['link'=> route('home') ,'main' => 'Home', 'sub' => 'Home', 'sub1' => 'Overview'],
     'admin.dashboard' => ['link'=> route('admin.dashboard'),'main' => 'Dashboard', 'sub' => 'Home', 'sub1' => 'Overview'],
 
     'kategori.index' => ['link'=> route('admin.dashboard'), 'main' => 'Kategori', 'sub' => 'Dashboard', 'sub1' => 'Kategori Home'],
@@ -54,7 +53,6 @@ $breadcrumbList = [
     'buku.create' => ['link'=> route('admin.dashboard'), 'main' => 'Buku', 'sub' => 'Dashboard', 'sub1' => 'Tambah Buku'],
     'buku.edit' => ['link'=> route('admin.dashboard'), 'main' => 'Buku', 'sub' => 'Dashboard', 'sub1' => 'Edit Buku'],
     'buku.destroy' => ['link'=> route('admin.dashboard'), 'main' => 'Buku', 'sub' => 'Dashboard', 'sub1' => 'Hapus Buku'],
-    'bukus.index' => ['link'=> route('home'),'main' => 'Home', 'sub' => 'Home', 'sub1' => 'Overview'],
     'bukus.show' => ['link'=> route('home'), 'main' => 'Buku', 'sub' => 'Home', 'sub1' => 'Detail Buku'],
 
 
@@ -76,7 +74,7 @@ $breadcrumbList = [
 
 
             // Jika Route Tidak Ada, Default ke Home
-            $breadcrumbs = $breadcrumbList[$routeName] ?? ['main' => 'Home', 'sub' => 'Home', 'sub1' => ''];
+            $breadcrumbs = $breadcrumbList[$routeName] ?? null;
 
             // Kirim Data ke Semua View
             $view->with([
