@@ -94,7 +94,24 @@
                         </div>
 
                         <!-- Category Card -->
-                        <div class="card card-flush py-4">
+                        <div class="card card-flush">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Genre</h2>
+                                </div>
+                            </div>
+
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0" data-select2-id="select2-data-130-az4i">
+                                <!--begin::Select2-->
+                                <div class="mb-2">
+                                    <label class="form-label">Masukan Genre</label>
+                                    <input class="form-control form-control-solid" value="" id="kt_tagify_6"/>
+                                    <div class="text-muted fs-7">Pilih genre untuk buku ini.</div>
+                                </div>         
+                            </div>
+                        </div>
+                        <div class="card card-flush">
                             <div class="card-header">
                                 <div class="card-title">
                                     <h2>Kategori</h2>
@@ -118,8 +135,8 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
-                                <div class="text-muted fs-7 mb-7">Pilih kategori untuk buku ini.</div>
-                                <a href="{{ route('kategori.index') }}" class="btn btn-light-primary btn-sm mb-10">
+                                <div class="text-muted fs-7 mb-5">Pilih kategori untuk buku ini.</div>
+                                <a href="{{ route('kategori.index') }}" class="btn btn-light-primary btn-sm mb-4">
                                     <i class="ki-duotone ki-plus fs-2"></i>Tambah Kategori Baru
                                 </a>
                             </div>
@@ -180,8 +197,8 @@
                                 <div>
                                     <!--begin::Label-->
                                     <label class="form-label required">Deskripsi Buku</label>
-                                    <textarea name="deskripsi" class="form-control" rows="4"
-                                        placeholder="Masukan deskripsi" id="deskripsi">{{ old('deskripsi') }}</textarea>
+                                    <textarea class="form-control" data-kt-autosize="true" name="deskripsi"
+                                    placeholder="Masukan deskripsi" id="deskripsi">{{ old('deskripsi') }}</textarea>
                                     @error('deskripsi')
                                     <div class="text-danger mt-2">
                                         {{ $message }}
@@ -222,6 +239,7 @@
                                         <!--end::Input-->
 
                                         <div class="mb-10 fv-row fv-plugins-icon-container">
+                                            <div class="my-10"></div>
                                             <!--begin::Label-->
                                             <label class="required form-label">Penerbit</label>
                                             <!--end::Label-->
@@ -320,6 +338,46 @@
 <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
+
+<script>
+// The DOM elements you wish to replace with Tagify
+var input = document.querySelector("#kt_tagify_6");
+
+// Initialize Tagify script on the above inputs
+new Tagify(input, {
+    whitelist: [  "Action", "Adventure", "Biography", "Business", "Children", "Classics", 
+    "Comics", "Contemporary", "Cookbooks", "Crime", "Dystopian", "Education",
+    "Fantasy", "Fiction", "Graphic Novels", "Historical", "History", "Horror", 
+    "Humor", "LGBTQ+", "Manga", "Memoir", "Motivational", "Music", "Mystery", 
+    "Non-Fiction", "Paranormal", "Philosophy", "Poetry", "Psychology", "Religion", 
+    "Romance", "Science", "Science Fiction", "Self-Help", "Short Stories", "Spirituality", 
+    "Sports", "Supernatural", "Suspense", "Thriller", "Travel", "True Crime", "Western", "Young Adult"],
+    maxTags: 10,
+    dropdown: {
+        maxItems: 20,           // <- mixumum allowed rendered suggestions
+        classname: "tagify__inline__suggestions", // <- custom classname for this dropdown, so it could be targeted
+        enabled: 0,             // <- show suggestions on focus
+        closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+    }
+});
+
+new Tagify(input, {
+    whitelist: [  "Action", "Adventure", "Biography", "Business", "Children", "Classics", 
+    "Comics", "Contemporary", "Cookbooks", "Crime", "Dystopian", "Education",
+    "Fantasy", "Fiction", "Graphic Novels", "Historical", "History", "Horror", 
+    "Humor", "LGBTQ+", "Manga", "Memoir", "Motivational", "Music", "Mystery", 
+    "Non-Fiction", "Paranormal", "Philosophy", "Poetry", "Psychology", "Religion", 
+    "Romance", "Science", "Science Fiction", "Self-Help", "Short Stories", "Spirituality", 
+    "Sports", "Supernatural", "Suspense", "Thriller", "Travel", "True Crime", "Western", "Young Adult"],
+    maxTags: 10,
+    dropdown: {
+        maxItems: 20,           // <- mixumum allowed rendered suggestions
+        classname: "", // <- custom classname for this dropdown, so it could be targeted
+        enabled: 0,             // <- show suggestions on focus
+        closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
+    }
+});
+</script>
 @endsection
 
 
