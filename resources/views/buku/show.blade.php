@@ -57,6 +57,7 @@
 
                         <h1 class="mb-4">{{ $buku->judul }}</h1>
                         <p><strong>Deskripsi:</strong> {{ $buku->deskripsi }}</p>
+                        <p><strong>Genre Buku:</strong> {{ $buku->genre }}</p>
                         <p><strong>Kategori:</strong> {{ $buku->kategori->nama }}</p>
                         <p><strong>Penulis:</strong> {{ $buku->penulis }}</p>
                         <p><strong>Penerbit:</strong> {{ $buku->penerbit }}</p>

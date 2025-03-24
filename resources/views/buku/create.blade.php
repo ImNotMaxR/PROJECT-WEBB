@@ -106,8 +106,13 @@
                                 <!--begin::Select2-->
                                 <div class="mb-2">
                                     <label class="form-label">Masukan Genre</label>
-                                    <input class="form-control form-control-solid" value="" id="kt_tagify_6"/>
+                                    <input class="form-control form-control-solid" value="" id="kt_tagify_6" name="genre"/>
                                     <div class="text-muted fs-7">Pilih genre untuk buku ini.</div>
+                                    @error('genre')
+                                    <div class="text-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>         
                             </div>
                         </div>
@@ -356,23 +361,6 @@ new Tagify(input, {
     dropdown: {
         maxItems: 20,           // <- mixumum allowed rendered suggestions
         classname: "tagify__inline__suggestions", // <- custom classname for this dropdown, so it could be targeted
-        enabled: 0,             // <- show suggestions on focus
-        closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
-    }
-});
-
-new Tagify(input, {
-    whitelist: [  "Action", "Adventure", "Biography", "Business", "Children", "Classics", 
-    "Comics", "Contemporary", "Cookbooks", "Crime", "Dystopian", "Education",
-    "Fantasy", "Fiction", "Graphic Novels", "Historical", "History", "Horror", 
-    "Humor", "LGBTQ+", "Manga", "Memoir", "Motivational", "Music", "Mystery", 
-    "Non-Fiction", "Paranormal", "Philosophy", "Poetry", "Psychology", "Religion", 
-    "Romance", "Science", "Science Fiction", "Self-Help", "Short Stories", "Spirituality", 
-    "Sports", "Supernatural", "Suspense", "Thriller", "Travel", "True Crime", "Western", "Young Adult"],
-    maxTags: 10,
-    dropdown: {
-        maxItems: 20,           // <- mixumum allowed rendered suggestions
-        classname: "", // <- custom classname for this dropdown, so it could be targeted
         enabled: 0,             // <- show suggestions on focus
         closeOnSelect: false    // <- do not hide the suggestions dropdown once an item has been selected
     }

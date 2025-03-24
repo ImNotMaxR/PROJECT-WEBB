@@ -37,120 +37,152 @@
                         </div>
                         @endif
 
-                        <!--begin::Card body-->
-                        <div class="card-body pt-7">
-                            <div class="row g-5 g-xl-9 mb-5 mb-xl-9">
-                                @foreach ($buku as $item)
-                                    <div class="col-md-6 mb-5">
-
-                                        <div class="card-body py-9">
-                                            <!--begin::Row-->
-                                            <div class="row gx-9 h-100">
-                                                <!--begin::Col (Image)-->
-                                                <div class="col-sm-6 mb-10 mb-sm-0">
-                                                    <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-300px min-h-sm-150 h-150 min-w-200px w-200px"
-                                                        style="background-size: 100% 100%;background-image:url('{{ asset('storage/' . $item->foto) }}')">
-                                                    </div>
-                                                </div>
-                                                <!--end::Col-->
-
-                                                <!--begin::Col (Details)-->
-                                                <div class="col-sm-6">
-                                                    <!--begin::Wrapper-->
-                                                    <div class="d-flex flex-column h-100">
-                                                        <!--begin::Header-->
-                                                        <div class="mb-7">
-                                                            <!--begin::Headin-->
-                                                            <div class="d-flex flex-stack mb-6">
-                                                                <!--begin::Title-->
-                                                                <div class="flex-shrink-0 me-5">
-                                                                    <span class="text-gray-500 fs-7 fw-bold me-2 d-block lh-1 pb-1">
-                                                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
-                                                                    </span>
-                                                                    <span class="text-gray-800 fs-1 fw-bold">
-                                                                        {{ $item->judul }}
-                                                                    </span>
-                                                                    <br>
-                                                                    <span class="text-gray-900 fs-4 fw-semibold">
-                                                                        {{ $item->deskripsi }}
-                                                                    </span>
-                                                                </div>
-                                                                <!--end::Title-->
-
-
-                                                            </div>
-                                                            <!--end::Heading-->
-
-                                                            <!--begin::Items-->
-                                                            <div class="d-flex align-items-center flex-wrap d-grid gap-2">
-                                                                <div class="d-flex align-items-center">
-
-                                                                    <div class="m-0">
-                                                                        <span
-                                                                            class="fw-semibold text-gray-500 d-block fs-8">Penulis</span>
-                                                                        <span
-                                                                            class="fw-bold text-gray-800 fs-7">{{ $item->penulis }}</span>
-                                                                    </div>
-                                                                    <!--end::Info-->
-                                                                </div>
-                                                                <!--end::Item-->
-                                                            </div>
-                                                            <!--end::Items-->
-                                                        </div>
-                                                        <!--end::Header-->
-
-                                                        <!--begin::Body-->
-                                                        <div class="mb-6">
-                                                            <!--begin::Text-->
-                                                            <span class="fw-semibold text-gray-600 fs-6 mb-8 d-block">
-                                                                Flat cartoony illustrations with vivid
-                                                                unblended colors and asymmetrical beautiful purple hair lady
-                                                            </span>
-                                                            <!--end::Text-->
-
-                                                            <!--begin::Stats-->
-                                                            <div class="d-flex">
-                                                                <!--begin::Stat-->
-                                                                <div
-                                                                    class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 me-6 mb-3">
-                                                                    <!--begin::Date-->
-                                                                    <span class="fs-6 text-gray-700 fw-bold">{{ $item->tahun_terbit }}</span>
-                                                                    <!--end::Date-->
-
-                                                                    <!--begin::Label-->
-                                                                    <div class="fw-semibold text-gray-500">Tahun Terbit</div>
-                                                                </div>
-                                                                <div
-                                                                    class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 mb-3">
-                                                                    <!--begin::Number-->
-                                                                    <span class="fs-6 text-gray-700 fw-bold">{{ $item->stok }}</span>
-                                                                    <div class="fw-semibold text-gray-500">Stok Buku</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                @endforeach
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered" id="tabel_buku">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Foto</th>
+                                            <th>Judul</th>
+                                            <th>Deskripsi</th>
+                                            <th>Penulis</th>
+                                            <th>Penerbit</th>
+                                            <th>Tahun</th>
+                                            <th>Kategori</th>
+                                            <th>Stok</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
-
                         </div>
-                        <!--end::Card body-->
                     </div>
-                    <!--end::Player widget 1-->
-
                 </div>
-                <!--end::Col-->
-
-                <!--begin::Col-->
-
-                <!--end::Col-->
             </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
+
+@endsection
+@section('script')
+<style>
+    /* CSS for truncating the description text */
+    #tabel_buku td:nth-child(4) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
+        /* Adjust the max-width as needed */
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        #tabel_buku td:nth-child(4) {
+            max-width: 100px;
+            /* Adjust the max-width for smaller screens */
+        }
+    }
+
+    @media (max-width: 576px) {
+        #tabel_buku td:nth-child(4) {
+            max-width: 100px;
+            /* Further reduce the max-width for very small screens */
+        }
+    }
+
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('#tabel_buku').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: false, // Menambahkan opsi responsive  
+            ajax: {
+                url: "{{ route('buku.datatables') }}",
+            },
+            columns: [{
+                    data: 'DT_RowIndex'
+                },
+                {
+                    data: 'foto',
+                    name: 'foto'
+                }, // Ensure this matches the column in the response  
+                {
+                    data: 'judul',
+                    name: 'judul'
+                },
+                {
+                    data: 'deskripsi',
+                    name: 'deskripsi'
+                },
+                {
+                    data: 'penulis',
+                    name: 'penulis'
+                },
+                {
+                    data: 'penerbit',
+                    name: 'penerbit'
+                },
+                {
+                    data: 'tahun_terbit',
+                    name: 'tahun_terbit'
+                },
+                {
+                    data: 'kategori',
+                    name: 'kategori'
+                },
+                {
+                    data: 'stok',
+                    name: 'stok'
+                },
+                {
+                    data: 'aksi',
+                    name: 'aksi'
+                }
+            ],
+            order: [
+                [2, 'asc']
+            ],
+            // Mengurutkan berdasarkan kolom 'nama'  
+            dom: "<'row mb-2'" +
+                "<'col-sm-6 d-flex align-items-center justify-content-start dt-toolbar'l>" +
+                "<'col-sm-6 d-flex align-items-center justify-content-end dt-toolbar'f>" +
+                ">" +
+                "<'table-responsive'tr>" +
+                "<'row'" +
+                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" +
+                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
+                ">"
+        });
+
+        // Tombol delete    
+        $('body').on('click', '.delete-buku', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            var bookTitle = $(this).data('judul'); // Get the book title from the data attribute    
+
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: `Anda yakin ingin menghapus buku ini?`,
+                icon: 'warning',
+                buttonsStyling: false,
+                showCancelButton: true,
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Tidak, kembali!',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-secondary'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url; // Redirect to the delete URL    
+                }
+            });
+        });
+    });
+
+</script>
+
 @endsection

@@ -163,11 +163,13 @@ public function updateStatus(Request $request)
     // Store a new book in the database    
     public function store(Request $request)
     {
+
         // Validate the request
         $validated = $request->validate([
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'judul' => 'required',
             'deskripsi' => 'required|max:100',
+            'genre' => 'required|string',
             'penulis' => 'required',
             'penerbit' => 'required',
             'tahun_terbit' => 'required',
@@ -176,14 +178,16 @@ public function updateStatus(Request $request)
         ]);
         
 
-      
+        $genreArray = json_decode($request->genre, true); // Ubah JSON menjadi array PHP
+        $genreString = implode(', ', array_column($genreArray, 'value')); // Ambil nilai dan gabungkan dengan koma    
         $foto = $request->file('foto');      
         $foto->storeAs('public/buku', $foto->hashName());      
       
         Buku::create([      
             'foto' => 'buku/' . $foto->hashName(),      
             'judul' => $request->judul,      
-            'deskripsi' => $request->deskripsi,      
+            'deskripsi' => $request->deskripsi,     
+            'genre' => $genreString, // Simpan sebagai string
             'penulis' => $request->penulis,      
             'penerbit' => $request->penerbit,      
             'tahun_terbit' => $request->tahun_terbit,      

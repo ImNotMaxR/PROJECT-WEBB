@@ -151,7 +151,7 @@
 </div>
 </div>
 <!--end::Container-->
-<div class="separator border-5 border-primary"></div>
+<div class="separator separator-dashed border-3 border-primary"></div>
 
 
 <style>
