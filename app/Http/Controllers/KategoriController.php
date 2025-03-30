@@ -21,30 +21,38 @@ class KategoriController extends Controller
 
     public function datatables()
     {
-        // Ambil data dari tabel 'kategoris'
+        // Ambil data dari tabel 'kategoris' sekaligus hitung total buku
         $kategoris = DB::table('kategoris')
-            ->select('id', 'nama', 'deskripsi', 'created_at', 'updated_at')
+            ->leftJoin('bukus', 'kategoris.id', '=', 'bukus.kategori_id')
+            ->select(
+                'kategoris.id',
+                'kategoris.nama',
+                'kategoris.deskripsi',
+                DB::raw('COUNT(bukus.id) as total_buku') // Hitung total buku
+            )
+            ->groupBy('kategoris.id', 'kategoris.nama', 'kategoris.deskripsi')
             ->get();
-
+    
         return DataTables::of($kategoris)
             ->addIndexColumn()
+            ->addColumn('total_buku', function ($row) {
+                return $row->total_buku . ' Buku';
+            })
             ->addColumn('aksi', function ($row) {
                 $id = $row->id;
                 $data = '
-
-                <a class="btn btn-sm btn-primary btn-icon edit-button" data-id="' . $id . '" href="#">
-                    <i class="fa fa-pencil"></i>
-                </a>
-                <a class="btn btn-sm btn-danger btn-icon delete-kategori" data-id="' . $id . '" href="' . route('kategori.destroy', $id) . '">
-                    <i class="fa fa-trash"></i>
-                </a>
-            ';
-
+                    <a class="btn btn-sm btn-primary btn-icon edit-button" data-id="' . $id . '" href="#">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="btn btn-sm btn-danger btn-icon delete-kategori" data-id="' . $id . '" href="' . route('kategori.destroy', $id) . '">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                ';
                 return $data;
             })
-            ->rawColumns(['aksi']) // Aktifkan kolom 'aksi' agar mendukung HTML
+            ->rawColumns(['aksi']) // Aktifkan HTML
             ->toJson();
-    }
+    }    
     public function create()
     {
         //

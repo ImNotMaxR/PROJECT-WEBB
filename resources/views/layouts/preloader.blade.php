@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        /* Tambahkan style fade-out */
+        #preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,10 +33,17 @@
             </svg>
         </div>
     </div>
+
     <script>
         window.addEventListener("load", function() {
-            document.getElementById("preloader").style.display = "none";
+            const preloader = document.getElementById("preloader");
+            preloader.classList.add("fade-out");
+            // Tunggu animasi selesai baru hilangkan
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 500); // Sesuaikan dengan durasi transition CSS
         });
     </script>
+
 </body>
 </html>

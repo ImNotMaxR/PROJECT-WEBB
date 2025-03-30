@@ -1,6 +1,6 @@
 <html>
-    @extends('layouts.preloader')
 
+@include('master.preloader')
 
 <div class="d-flex flex-column flex-root">
     <!--begin::Page-->
@@ -27,5 +27,20 @@
     <script src="{{ asset('assets/js/custom/utilities/modals/offer-a-deal/complete.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/offer-a-deal/main.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
+    <script>
+        if (window.top != window.self) {
+            window.top.location.replace(window.self.location.href);
+        }
+
+        <
+        !--Include jQuery-- >
+        <
+        script src = "https://code.jquery.com/jquery-3.6.0.min.js" >
+
+    </script>
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </script>
 </body>
 </html>

@@ -43,12 +43,8 @@
                         <!--end::Header-->
 
                         <!--begin::Body-->
+
                         <div class="card-body">
-                            @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                            @endif
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered" id="tabel_kategori">
                                     <thead>
@@ -56,6 +52,7 @@
                                             <th>No</th>
                                             <th>Nama Kategori</th>
                                             <th>Deskripsi</th>
+                                            <th>Total Buku</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -67,6 +64,47 @@
                         <!--end::Table widget 13-->
                     </div>
                 </div>
+
+                <!-- Toastr-->
+                <script>
+                    $(document).ready(function () {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": false,
+                            "progressBar": true,
+                            "positionClass": "toastr-top-right",
+                            "preventDuplicates": false,
+                            "onclick": null,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "5000",
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+
+                        @if(Session::has('success'))
+                        toastr.success("{{ Session::get('success') }}", "Success");
+                        @endif
+
+                        @if(Session::has('error'))
+                        toastr.error("{{ Session::get('error') }}", "Error");
+                        @endif
+
+                        @if(Session::has('info'))
+                        toastr.info("{{ Session::get('info') }}", "Info");
+                        @endif
+
+                        @if(Session::has('warning'))
+                        toastr.warning("{{ Session::get('warning') }}", "Warning");
+                        @endif
+                    });
+
+                </script>
+                <!-- Toastr-->
 
                 <div class="modal fade" tabindex="-1" id="kt_modal_1">
                     <div class="modal-dialog modal-lg">
@@ -86,7 +124,7 @@
                                     <!-- Nama kategori -->
                                     <label for="nama_kategori" class="required">Nama Kategori</label>
                                     <input type="text" name="nama_kategori" class="form-control"
-                                        placeholder="Masukan nama Kategori/Genre" id="nama_kategori"
+                                        placeholder="Masukan Nama Kategori" id="nama_kategori"
                                         value="{{ old('nama_kategori') }}" />
 
                                     <!-- Pesan Error Nama kategori -->
@@ -138,6 +176,9 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('script')
 <script>
@@ -149,6 +190,7 @@
             responsive: false, // Menambahkan opsi responsive
             ajax: {
                 url: "{{ route('kategori.datatables') }}",
+                type: "GET"
             },
             columns: [{
                     data: "DT_RowIndex",
@@ -163,6 +205,11 @@
                     data: 'deskripsi',
                     name: 'deskripsi',
                     orderable: false
+                },
+                {
+                    data: 'total_buku',
+                    name: 'total_buku',
+                    orderable: false,
                 },
                 {
                     data: 'aksi',

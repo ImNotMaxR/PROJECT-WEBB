@@ -81,16 +81,16 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Image-->
-                    <img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="{{ asset('assets/media/misc/auth-screens.png') }}" alt="" />
+                    <img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="{{ asset('assets/media/misc/SCREEEN.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Fast, Efficient and Productive</h1>
+                    <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Cepat, Efisien dan Produktif</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
                     <div class="d-none d-lg-block text-white fs-base text-center">
                         Selamat datang di CiroBooks<br/>
-                        Sistem Informasi Akuntansi yang<br/>
-                        memudahkan bisnis Anda
+                        Sistem Perpustakaan yang<br/>
+                        Efisien Dan Produktif
                     </div>
                     <!--end::Text-->
                 </div>

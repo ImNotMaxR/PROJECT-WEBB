@@ -41,13 +41,15 @@ class RegisteredUserController extends Controller
             'name' => $request->name,  
             'email' => $request->email,  
             'password' => Hash::make($request->password),  
-            'role' => 'user', // Hardcode the role as 'user' for additional security  
+            'role' => 'user', 
         ]);  
   
         event(new Registered($user));  
     
-        // Set a flash message to inform the user        
-        // Redirect to the login page    
-        return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silahkan Login');    
+          // Langsung login user
+    Auth::login($user);
+
+    // Redirect ke halaman home
+    return redirect(RouteServiceProvider::HOME)->with('success', 'Akun berhasil dibuat dan Anda telah login.');
     }  
 }  

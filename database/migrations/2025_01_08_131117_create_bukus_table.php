@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('foto');
             $table->string('judul');
             $table->string('deskripsi');
+            $table->string('genre')->nullable();
             $table->string('penulis');
             $table->string('penerbit');
             $table->date('tahun_terbit');

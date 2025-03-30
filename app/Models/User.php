@@ -11,8 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $fillable = ['foto', 'name', 'email', 'password', 'role'];
-
+    protected $fillable = [
+        'avatar', 'name', 'email', 'password', 'role',
+        'first_name', 'last_name', 'kelas', 'tanggal_lahir', 'alamat', 'no_telepon','onboarding',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -40,10 +42,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function anggota()
-    {
-        return $this->hasOne(Anggota::class);
-    }
     public function peminjaman()
     {
         return $this->hasMany(Peminjaman::class);

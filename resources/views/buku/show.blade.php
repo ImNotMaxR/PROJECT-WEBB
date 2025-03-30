@@ -3,39 +3,46 @@
 @section('content')
     <div class="container mt-5">
 
-        <div>
-            @if (@session()->has('message'))
-       
-       <!--begin::Alert-->
-<div class="alert alert-dismissible bg-primary d-flex flex-column flex-sm-row p-5 mb-10">
-    <!--begin::Icon-->
-    <i class="ki-duotone ki-search-list fs-2hx text-light me-4 mb-5 mb-sm-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-    <!--end::Icon-->
-
-    <!--begin::Wrapper-->
-    <div class="d-flex flex-column text-light pe-0 pe-sm-10">
-        <!--begin::Title-->
-        <h4 class="mb-2 light"></h4>
-
-            {{session()->get('message')}}
-
-                    <!--end::Title-->
-
-        <!--begin::Content-->
-        <span></span>
-        <!--end::Content-->
-    </div>
-    <!--end::Wrapper-->
-
-    <!--begin::Close-->
-    <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
-        <i class="ki-duotone ki-cross fs-1 text-light"><span class="path1"></span><span class="path2"></span></i>
-    </button>
-    <!--end::Close-->
-</div>
-<!--end::Alert-->
-            @endif
-        </div>
+                      <!-- Toastr-->
+                      <script>
+                        $(document).ready(function () {
+                            toastr.options = {
+                                "closeButton": true,
+                                "debug": false,
+                                "newestOnTop": false,
+                                "progressBar": true,
+                                "positionClass": "toastr-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
+    
+                            @if(Session::has('success'))
+                            toastr.success("{{ Session::get('success') }}", "Success");
+                            @endif
+    
+                            @if(Session::has('error'))
+                            toastr.error("{{ Session::get('error') }}", "Error");
+                            @endif
+    
+                            @if(Session::has('info'))
+                            toastr.info("{{ Session::get('info') }}", "Info");
+                            @endif
+    
+                            @if(Session::has('warning'))
+                            toastr.warning("{{ Session::get('warning') }}", "Warning");
+                            @endif
+                        });
+    
+                    </script>
+                    <!-- Toastr-->
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-5 mb-xl-10">

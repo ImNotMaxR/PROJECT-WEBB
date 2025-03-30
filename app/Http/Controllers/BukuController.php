@@ -9,42 +9,11 @@ use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;  
 use Illuminate\Support\Facades\Auth;    
 use App\Models\Peminjaman;    
+use Carbon\Carbon;
 use App\Models\User;    
   
 class BukuController extends Controller    
 {   
-    public function datatables()    
-    {    
-        $bukus = Buku::with('kategori')    
-            ->select('id', 'foto', 'judul', 'deskripsi', 'penulis', 'penerbit', 'tahun_terbit', 'kategori_id', 'stok')    
-            ->get();    
-      
-        return DataTables::of($bukus)    
-            ->addIndexColumn()    
-            ->addColumn('foto', function ($row) {    
-                // Check if the photo exists  
-                if ($row->foto) {  
-                    return '<img src="' . Storage::url($row->foto) . '" width="50px" alt="Foto Buku">';    
-                }  
-                return 'No Image'; // Fallback if no photo exists  
-            })    
-            ->addColumn('aksi', function ($row) {    
-                $id = $row->id;    
-                return '    
-                    <a class="btn btn-sm btn-primary btn-icon edit-button" data-id="' . $id . '" href="' . route('buku.edit', $id) . '">    
-                        <i class="fa fa-pencil"></i>    
-                    </a>    
-                    <a class="btn btn-sm btn-danger btn-icon delete-buku" data-id="' . $id . '" href="' . route('buku.destroy', $id) . '">    
-                        <i class="fa fa-trash"></i>    
-                    </a>    
-                ';    
-            })    
-            ->addColumn('kategori', function ($row) {    
-                return $row->kategori ? $row->kategori->nama : 'N/A';    
-            })    
-            ->rawColumns(['foto', 'aksi'])    
-            ->toJson();    
-    }  
   
     // In Buku.php model    
     public function kategori()    
@@ -96,12 +65,12 @@ class BukuController extends Controller
         
                 $pinjam->save();      
         
-                return redirect()->back()->with('message', 'Pesan Peminjaman Sudah Dikirim Ke Admin Untuk Meminjam Buku Ini');      
+                return redirect()->back()->with('success', 'Pesan Peminjaman Sudah Dikirim Ke Admin Untuk Meminjam Buku Ini');      
             } else {      
                 return redirect('/login');       
             }      
         } else {      
-            return redirect()->back()->with('message', 'BUKU NYA ABIS BRO');      
+            return redirect()->back()->with('error', 'BUKU NYA ABIS BRO');      
         }      
     }      
   
@@ -150,15 +119,86 @@ public function updateStatus(Request $request)
     }  
   
     // Display paginated books for the dashboard    
-    public function index()    
+    public function index(Request $request)    
     {    
+        $kategoris = Kategori::all();
         $totalBuku = Buku::count();  
-  
-        // Siapkan data untuk view    
-        $buku = Buku::with('kategori')->orderBy('id', 'DESC')->paginate(5); 
+        $query = Buku::with('kategori')->orderBy('id', 'DESC'); 
         
-        return view('buku.index', compact('buku', 'totalBuku'));    
-    }    
+        // Ambil parameter pencarian dari request
+        $search = $request->input('search');
+    $genreSearch = $request->input('genre');
+    $kategoriId = $request->input('kategori_id');
+    $searchType = $request->input('type', 'has');
+    $tahunTerbitRange = $request->input('tahun_terbit');
+
+        
+        
+    // Filter berdasarkan Genre
+    if (!empty($genreSearch)) {
+        $genres = is_string($genreSearch) ? json_decode($genreSearch, true) : $genreSearch;
+        if (is_array($genres)) {
+            $genres = array_map(fn($g) => is_array($g) ? $g['value'] : $g, $genres);
+        }
+        $query->where(function ($q) use ($genres) {
+            foreach ($genres as $genre) {
+                if (!empty($genre)) {
+                    $q->orWhere('genre', 'LIKE', "%$genre%");
+                }
+            }
+        });
+    }
+
+    // Filter berdasarkan Kategori
+    if (!empty($kategoriId)) {
+        $query->where('kategori_id', $kategoriId);
+    }
+
+    // Filter berdasarkan "Cari Berdasarkan"
+    if (!empty($search)) {
+        switch ($searchType) {
+            case 'judul':
+                $query->where('judul', 'LIKE', "%$search%");
+                break;
+            case 'penulis':
+                $query->where('penulis', 'LIKE', "%$search%");
+                break;
+            case 'penerbit':
+                $query->where('penerbit', 'LIKE', "%$search%");
+                break;
+            case 'has':
+            default:
+                $query->where(function ($q) use ($search) {
+                    $q->where('judul', 'LIKE', "%$search%")
+                      ->orWhere('penulis', 'LIKE', "%$search%")
+                      ->orWhere('penerbit', 'LIKE', "%$search%");
+                });
+                break;
+        }
+    }
+
+    // Filter berdasarkan Tahun Terbit (Rentang Tanggal)
+    if (!empty($tahunTerbitRange)) {
+        $dates = explode(" to ", $tahunTerbitRange);
+        if (count($dates) == 2) {
+            $startDate = Carbon::parse($dates[0])->startOfDay();
+            $endDate = Carbon::parse($dates[1])->endOfDay();
+            $query->whereBetween('tahun_terbit', [$startDate, $endDate]);
+        }
+    }
+
+        // Ambil hasil dengan pagination
+        $buku = $query->paginate(4)->appends($request->except('page'));
+        $filteredbukusCount = $buku->total(); // Ambil jumlah hasil pencarian
+
+        return view('buku.index', [
+            'buku' => $buku,
+            'totalBuku' => $totalBuku,
+            'filteredbukusCount' => $filteredbukusCount,
+            'kategoris' => $kategoris
+        ]);
+    }
+    
     
     // Store a new book in the database    
     public function store(Request $request)
@@ -209,49 +249,57 @@ public function updateStatus(Request $request)
     }  
     
     // Update an existing book in the database    
-    public function update(Request $request, $id)    
-    {    
-        $request->validate([    
-            'judul' => 'required',    
-            'deskripsi' => 'required',    
-            'penulis' => 'required',    
-            'penerbit' => 'required',    
-            'tahun_terbit' => 'required|date',    
-            'kategori_id' => 'required',    
-            'stok' => 'required|integer'    
-        ]);    
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'genre' => 'required|string',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required|date',
+            'kategori_id' => 'required',
+            'stok' => 'required|integer'
+        ]);
     
-        $bk = Buku::find($id);    
+        $bk = Buku::find($id);
     
-        if ($request->hasFile('foto')) {    
-            $foto = $request->file('foto');    
-            Storage::delete('public/' . $bk->foto);    
-            $foto->storeAs('public/buku', $foto->hashName());    
+        // Konversi genre dari JSON string ke array
+        $genreArray = json_decode($request->genre, true);
+        $genreString = implode(', ', array_column($genreArray, 'value')); // Ubah ke format string
     
-            $bk->update([    
-                'foto' => 'buku/' . $foto->hashName(),    
-                'judul' => $request->judul,    
-                'deskripsi' => $request->deskripsi,    
-                'penulis' => $request->penulis,    
-                'penerbit' => $request->penerbit,    
-                'tahun_terbit' => $request->tahun_terbit,    
-                'kategori_id' => $request->kategori_id,    
-                'stok' => $request->stok    
-            ]);    
-        } else {    
-            $bk->update([    
-                'judul' => $request->judul,    
-                'deskripsi' => $request->deskripsi,    
-                'penulis' => $request->penulis,    
-                'penerbit' => $request->penerbit,    
-                'tahun_terbit' => $request->tahun_terbit,    
-                'kategori_id' => $request->kategori_id,    
-                'stok' => $request->stok    
-            ]);    
-        }    
+        // Cek apakah ada file baru yang diunggah
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            Storage::delete('public/' . $bk->foto);
+            $foto->storeAs('public/buku', $foto->hashName());
     
-        return redirect()->route('buku.index')->with('success', 'Buku berhasil diupdate');    
-    }    
+            $bk->update([
+                'foto' => 'buku/' . $foto->hashName(),
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'genre' => $genreString, // Simpan sebagai string
+                'penulis' => $request->penulis,
+                'penerbit' => $request->penerbit,
+                'tahun_terbit' => $request->tahun_terbit,
+                'kategori_id' => $request->kategori_id,
+                'stok' => $request->stok
+            ]);
+        } else {
+            $bk->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'genre' => $genreString, // Simpan sebagai string
+                'penulis' => $request->penulis,
+                'penerbit' => $request->penerbit,
+                'tahun_terbit' => $request->tahun_terbit,
+                'kategori_id' => $request->kategori_id,
+                'stok' => $request->stok
+            ]);
+        }
+    
+        return redirect()->route('buku.index')->with('success', 'Buku berhasil diupdate');
+    }
     
     // Delete a book from the database    
     public function destroy($id)    

@@ -16,8 +16,13 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['nullable', 'string', 'max:255'],
+            'kelas' => ['required', 'string'],
+            'tanggal_lahir' => ['required', 'date'],
+            'alamat' => ['required', 'string', 'max:500'],
+            'no_telepon' => ['required', 'string', 'max:15', 'regex:/^[0-9\-\+\s]+$/'], // Pastikan format nomor valid
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'max:2048'],
         ];
     }
 }

@@ -9,6 +9,9 @@ class Kategori extends Model
 {
     use HasFactory;
 
+    protected $table = 'kategoris'; // Explicitly set the table name    
+
+
     protected $fillable = ['nama', 'deskripsi'];
 
     public function buku()

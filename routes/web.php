@@ -7,7 +7,9 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategoriController;  
 use App\Http\Controllers\PinjamController;  
-use App\Http\Controllers\AdminDashboardController;  
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\KatalogController;
+use App\Http\Controllers\PerpanjanganController;
 use Illuminate\Support\Facades\Route;  
 
   
@@ -15,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->group(function () {
 Route::get('/', [LandingController::class, 'index'])->name('home');  
 Route::get('home', [LandingController::class, 'index'])->name('home');  
-Route::get('/bukus', [LandingController::class, 'index'])->name('bukus.index'); 
+Route::get('/bukus', [KatalogController::class, 'index'])->name('bukus.index'); 
+// routes/web.php
+Route::post('/search-bukus', [KatalogController::class, 'search'])->name('bukus.search');
 });
 
 Route::prefix('menu')->group(function () {
@@ -28,6 +32,7 @@ Route::get('help-center', [MenuController::class, 'helpCenter'])->name('menu.hel
 Route::middleware(['auth'])->group(function () {  
 
     // Tampilin Buku Khusus User Di HOME
+    Route::post('/user/update-profile', [ProfileController::class, 'updateProfile'])->name('user.update-profile');
     Route::get('/bukus/{id}', [BukuController::class, 'show'])->name('bukus.show'); 
 
     // BUAT PINJAM BUKU
@@ -39,10 +44,18 @@ Route::middleware(['auth'])->group(function () {
     // Buat Peminjaman
     Route::get('/peminjaman', [PinjamController::class, 'userPeminjaman'])->name('pinjam.peminjaman');
 
+    // BUAT PERPANJANGAN
+    Route::post('/perpanjangan/store', [PerpanjanganController::class, 'store'])->name('perpanjangan.store');
+
+
     // Profile routes  
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');  
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');  
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');  
+    Route::prefix('profile')->group(function () {
+    Route::get('/index', [ProfileController::class, 'index'])->name('profile.index');  
+    Route::get('/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/update', [ProfileController::class, 'update'])->name('profile.update'); 
+    Route::patch('/account', [ProfileController::class, 'updateAccountSettings'])->name('profile.update.account'); 
+    Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');  
+});
 });  
 
 
@@ -72,6 +85,12 @@ Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {
       
     // Route for deleting a peminjaman  
     Route::delete('/peminjaman/{id}', [BukuController::class, 'destroyPeminjaman'])->name('peminjaman.destroy');  
+
+    Route::get('/perpanjangan', [PerpanjanganController::class, 'index'])->name('perpanjangan.index');  
+    Route::post('/perpanjangan/setujui/{id}', [PerpanjanganController::class, 'setujui'])->name('perpanjangan.setujui');
+    Route::post('perpanjangan/tolak/{id}', [PerpanjanganController::class, 'tolak'])->name('perpanjangan.tolak');
+    Route::delete('perpanjangan/hapus/{id}', [PerpanjanganController::class, 'hapus'])->name('perpanjangan.destroy');
+
 
 });
   

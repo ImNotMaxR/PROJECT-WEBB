@@ -3,7 +3,7 @@
     <!--begin::Page-->
     <div class="page d-flex flex-row flex-column-fluid">
 
-                <script>var hostUrl = "{{ asset('assets/') }}";</script>
+    <script>var hostUrl = "{{ asset('assets/') }}";</script>
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>

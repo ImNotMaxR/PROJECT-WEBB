@@ -92,6 +92,35 @@
                             <!--end::Card body-->
                         </div>
 
+                        
+                        <!-- Category Card -->
+                        <div class="card card-flush">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Genre</h2>
+                                </div>
+                            </div>
+
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0" data-select2-id="select2-data-130-az4i">
+                                <!--begin::Select2-->
+                                <div class="mb-2">
+                                    <label class="form-label">Masukkan Genre</label>
+                                    <input class="form-control form-control-solid" 
+                                           value="{{ old('genre') }}" 
+                                           id="kt_tagify_6" 
+                                           name="genre"/>
+
+                                    <div class="text-muted fs-7">Pilih genre untuk buku ini.</div>
+                                    @error('genre')
+                                    <div class="text-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>         
+                            </div>
+                        </div>
+
                         <!-- Category Card -->
                         <div class="card card-flush py-4">
                             <div class="card-header">
@@ -281,4 +310,35 @@
 <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var input = document.querySelector("#kt_tagify_6");
+        
+        // Pastikan genre lama dimuat
+        var oldGenres = {!! json_encode(explode(', ', $buku->genre ?? '')) !!};
+
+        var tagify = new Tagify(input, {
+            whitelist: [  "Action", "Adventure", "Biography", "Business", "Children", "Classics", 
+            "Comics", "Contemporary", "Cookbooks", "Crime", "Dystopian", "Education",
+            "Fantasy", "Fiction", "Graphic Novels", "Historical", "History", "Horror", 
+            "Humor", "LGBTQ+", "Manga", "Memoir", "Motivational", "Music", "Mystery", 
+            "Non-Fiction", "Paranormal", "Philosophy", "Poetry", "Psychology", "Religion", 
+            "Romance", "Science", "Science Fiction", "Self-Help", "Short Stories", "Spirituality", 
+            "Sports", "Supernatural", "Suspense", "Thriller", "Travel", "True Crime", "Western", "Young Adult"],
+            maxTags: 10,
+            dropdown: {
+                maxItems: 20,
+                classname: "tagify__inline__suggestions",
+                enabled: 0,
+                closeOnSelect: false
+            }
+        });
+
+        // Set nilai lama ke dalam Tagify
+        tagify.addTags(oldGenres);
+    });
+</script>
+
 @endsection

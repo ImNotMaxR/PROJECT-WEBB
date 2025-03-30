@@ -8043,8 +8043,8 @@ fieldset:disabled .btn {
 
 .link-primary:focus,
 .link-primary:hover {
-    color: RGBA(115, 215, 161, var(--bs-link-opacity, 1)) !important;
-    text-decoration-color: RGBA(115, 215, 161, var(--bs-link-underline-opacity, 1)) !important
+    color: RGBA(133, 196, 255, var(--bs-link-opacity, 1)) !important;
+    text-decoration-color: RGBA(133, 196, 255, var(--bs-link-underline-opacity, 1)) !important
 }
 
 .link-secondary {
