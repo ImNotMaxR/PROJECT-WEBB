@@ -205,7 +205,6 @@
 </div>
 </div>
 
-@include('master.footer')
 <!-- Onboarding Welcome Modal -->
 <div class="modal fade" tabindex="-1" id="kt_modal_welcome">
     <div class="modal-dialog modal-dialog-centered">

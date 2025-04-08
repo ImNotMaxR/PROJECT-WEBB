@@ -161,12 +161,22 @@
                                                 class="form-control form-control-lg form-control-solid mb-3"
                                                 placeholder="First name"
                                                 value="{{ old('fname', $user->first_name) }}" />
+                                                @error('fname')
+                                                <div class="text-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                         <div class="col-lg-6 fv-row">
                                             <input type="text" name="lname"
                                                 class="form-control form-control-lg form-control-solid"
                                                 placeholder="Last name" value="{{ old('lname', $user->last_name) }}" />
-                                        </div>
+                                                @error('lname')
+                                                <div class="text-danger mt-2">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
                                     </div>
                                 </div>
 
@@ -278,6 +288,11 @@
                                                 </option>
                                             </optgroup>
                                         </select>
+                                        @error('kelas')
+                                        <div class="text-danger mt-2">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -306,6 +321,11 @@
                                     <div class="col-lg-8 fv-row">
                                         <textarea name="alamat" class="form-control form-control-solid"
                                             data-kt-autosize="true">{{ old('alamat', $user->alamat) }}</textarea>
+                                            @error('alamat')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                     </div>
                                 </div>
 
@@ -318,6 +338,11 @@
                                             class="form-control form-control-lg form-control-solid"
                                             placeholder="no_telepon number"
                                             value="{{ old('no_telepon', $user->no_telepon) }}" />
+                                            @error('no_telepon')
+                                            <div class="text-danger mt-2">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                     </div>
                                 </div>
 

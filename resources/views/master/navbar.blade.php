@@ -317,7 +317,7 @@
 
 
                                     <!--end:Menu item-->
-                                    @if (Auth::check() && Auth::user()->role === 'admin')
+                                    @if (Auth::check() && in_array(Auth::user()->role, ['admin', 'superadmin']))
                                     <!--begin:Menu item-->
                                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                                         data-kt-menu-placement="bottom-start"
@@ -367,7 +367,7 @@
                                             <!--begin:Menu item-->
                                             <div class="menu-item">
                                                 <!--begin:Menu link-->
-                                                <a class="menu-link py-3" href="{{ route('request.pinjam') }}">
+                                                <a class="menu-link py-3" href="{{ route('peminjaman.index') }}">
                                                     <span class="menu-icon">
                                                         <i class="ki-duotone ki-tablet-book fs-2">
                                                             <span class="path1"></span>

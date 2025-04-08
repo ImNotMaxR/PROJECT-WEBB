@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\LandingController;  
 use App\Http\Controllers\BukuController;  
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\KategoriController;  
 use App\Http\Controllers\PinjamController;  
 use App\Http\Controllers\AdminDashboardController;
@@ -31,17 +31,15 @@ Route::get('help-center', [MenuController::class, 'helpCenter'])->name('menu.hel
 // Authenticated User Routes (akses untuk user yang login)  
 Route::middleware(['auth'])->group(function () {  
 
-    // Tampilin Buku Khusus User Di HOME
+// ONBOARDING USER (BAGI YANG BARU REGISTER)
     Route::post('/user/update-profile', [ProfileController::class, 'updateProfile'])->name('user.update-profile');
+    //Lihat BUKU
     Route::get('/bukus/{id}', [BukuController::class, 'show'])->name('bukus.show'); 
 
     // BUAT PINJAM BUKU
-
     Route::get('/pinjam/{id}', [BukuController::class, 'pinjam'])->name('pinjam.buku');
 
-
-
-    // Buat Peminjaman
+    // Buat check Peminjaman
     Route::get('/peminjaman', [PinjamController::class, 'userPeminjaman'])->name('pinjam.peminjaman');
 
     // BUAT PERPANJANGAN
@@ -61,8 +59,8 @@ Route::middleware(['auth'])->group(function () {
 
 
   
-// Admin Routes (akses untuk admin saja)  
-Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {  
+// Admin Routes (akses untuk superadmin dan admin)  
+Route::middleware(['CheckUserRole:admin,superadmin'])->prefix('admin')->group(function () {  
     Route::get('/dashboard', [AdminDashboardController::class, 'Dashboard'])->name('admin.dashboard');   
   
 
@@ -78,43 +76,50 @@ Route::middleware(['CheckUserRole:admin'])->prefix('admin')->group(function () {
     Route::get('/datatables', [BukuController::class, 'datatables'])->name('buku.datatables');  
 
     //konfirmasi peminjaman
-    Route::get('/peminjaman', [BukuController::class, 'pinjam_request'])->name('request.pinjam');  
-  
-    // Route for updating the status of a peminjaman  
+    Route::get('/peminjaman', [BukuController::class, 'peminjaman_index'])->name('peminjaman.index');  
+
+    // UPDATE STATUS PEMINJAMAN  
     Route::post('/peminjaman/update-status', [BukuController::class, 'updateStatus'])->name('peminjaman.updateStatus');  
-      
+
     // Route for deleting a peminjaman  
     Route::delete('/peminjaman/{id}', [BukuController::class, 'destroyPeminjaman'])->name('peminjaman.destroy');  
 
+    //PERPANJANGAN PEMINJAMAN
     Route::get('/perpanjangan', [PerpanjanganController::class, 'index'])->name('perpanjangan.index');  
     Route::post('/perpanjangan/setujui/{id}', [PerpanjanganController::class, 'setujui'])->name('perpanjangan.setujui');
     Route::post('perpanjangan/tolak/{id}', [PerpanjanganController::class, 'tolak'])->name('perpanjangan.tolak');
     Route::delete('perpanjangan/hapus/{id}', [PerpanjanganController::class, 'hapus'])->name('perpanjangan.destroy');
-
-
 });
   
     // Kategori management routes for admin  
     Route::prefix('kategori')->group(function () {
         Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');
         Route::post('/', [KategoriController::class, 'store'])->name('kategori.store');
-        Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
-        Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
-        Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
-        Route::get('/kategori/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-        Route::get('/kategori/datatables', [KategoriController::class, 'datatables'])->name('kategori.datatables');  
+        Route::get('/create', [KategoriController::class, 'create'])->name('kategori.create');
+        Route::get('/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
+        Route::put('/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+        Route::get('/destroy/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+        Route::get('/datatables', [KategoriController::class, 'datatables'])->name('kategori.datatables');  
     });
 
+    //Kelola Member (Users)
     Route::prefix('member')->group(function () {  
-        Route::get('/', [UserController::class, 'index'])->name('member.index');  
-        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('member.edit');   
-        Route::get('/create', [UserController::class, 'create'])->name('member.create'); 
-        Route::put('/update/{id}', [UserController::class, 'update'])->name('member.update');    
-        Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('member.destroy');    
+        Route::get('/', [MemberController::class, 'index'])->name('member.index');  
+        Route::get('/edit/{user}', [MemberController::class, 'edit'])->name('member.edit');
+        Route::post('/member', [MemberController::class, 'store'])->name('member.store');
+        Route::put('/update/{user}', [MemberController::class, 'update'])->name('member.update');
+        Route::get('/destroy/{id}', [MemberController::class, 'destroy'])->name('member.destroy'); 
+        
     });  
-
 }); 
 
+Route::middleware(['CheckUserRole:superadmin'])->prefix('admin')->group(function () {  
+
+        //Kelola Member (Admin)
+        Route::prefix('admin')->group(function () {  
+
+        });  
+});
 
 
   

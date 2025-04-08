@@ -54,9 +54,11 @@
     @include('master.navbar')
     @include('master.breadcrumb')
     @include('master.header')
-
+    
     @yield('content')
+    @include('master.footer')
 </div>
+
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {

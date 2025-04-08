@@ -75,7 +75,7 @@ class BukuController extends Controller
     }      
   
     // Request pinjam buku  
-    public function pinjam_request()  
+    public function peminjaman_index()  
     {  
         $data = Peminjaman::with(['user', 'buku'])->get(); // Eager load user and buku relationships  
         return view('buku.peminjaman', compact('data'));  
@@ -86,7 +86,7 @@ public function updateStatus(Request $request)
 {    
     $request->validate([    
         'id' => 'required|exists:peminjaman,id',    
-        'status' => 'required|in:pending,disetujui,dikembalikan,denda',    
+        'status' => 'required|in:pending,disetujui,ditolak,dikembalikan,denda',    
     ]);    
   
     $peminjaman = Peminjaman::find($request->id);    
@@ -98,8 +98,10 @@ public function updateStatus(Request $request)
     } elseif ($request->status == 'dikembalikan') {  
         // Increase stock when returned  
         $peminjaman->buku->increment('stok');  
+    } elseif ($request->status == 'ditolak') {  
+        // No stock change if rejected  
     }  
-  
+
     $peminjaman->status = $request->status;    
     $peminjaman->save();    
   

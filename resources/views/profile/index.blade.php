@@ -231,4 +231,5 @@
                     <!--end::Card body-->
                 </div>
                 <!--end::details View-->
+            </div>
                 @endsection

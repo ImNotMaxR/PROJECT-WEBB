@@ -172,8 +172,6 @@
                 text: `Anda yakin ingin menyetujui perpanjangan buku "${judul}"?`,
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#primary',
-                cancelButtonColor: '#warning',
                 confirmButtonText: 'Ya, Setujui',
                 cancelButtonText: 'Batal'
             }).then((result) => {
@@ -204,8 +202,6 @@
                 text: `Anda yakin ingin menolak perpanjangan buku "${judul}"?`,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#primary',
-                cancelButtonColor: '#d33',
                 confirmButtonText: 'Ya, Tolak',
                 cancelButtonText: 'Batal'
             }).then((result) => {
@@ -236,8 +232,6 @@
                 text: `Anda yakin ingin menghapus perpanjangan buku "${judul}"?`,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#primary',
-                cancelButtonColor: '#d33',
                 confirmButtonText: 'Ya, Hapus',
                 cancelButtonText: 'Batal'
             }).then((result) => {

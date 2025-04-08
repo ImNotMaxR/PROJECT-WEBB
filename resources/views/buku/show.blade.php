@@ -2,47 +2,46 @@
 
 @section('content')
     <div class="container mt-5">
-
-                      <!-- Toastr-->
-                      <script>
-                        $(document).ready(function () {
-                            toastr.options = {
-                                "closeButton": true,
-                                "debug": false,
-                                "newestOnTop": false,
-                                "progressBar": true,
-                                "positionClass": "toastr-top-right",
-                                "preventDuplicates": false,
-                                "onclick": null,
-                                "showDuration": "300",
-                                "hideDuration": "1000",
-                                "timeOut": "5000",
-                                "extendedTimeOut": "1000",
-                                "showEasing": "swing",
-                                "hideEasing": "linear",
-                                "showMethod": "fadeIn",
-                                "hideMethod": "fadeOut"
-                            };
-    
-                            @if(Session::has('success'))
-                            toastr.success("{{ Session::get('success') }}", "Success");
-                            @endif
-    
-                            @if(Session::has('error'))
-                            toastr.error("{{ Session::get('error') }}", "Error");
-                            @endif
-    
-                            @if(Session::has('info'))
-                            toastr.info("{{ Session::get('info') }}", "Info");
-                            @endif
-    
-                            @if(Session::has('warning'))
-                            toastr.warning("{{ Session::get('warning') }}", "Warning");
-                            @endif
-                        });
-    
-                    </script>
-                    <!-- Toastr-->
+                              <!-- Toastr-->
+                              <script>
+                                $(document).ready(function () {
+                                    toastr.options = {
+                                        "closeButton": true,
+                                        "debug": false,
+                                        "newestOnTop": false,
+                                        "progressBar": true,
+                                        "positionClass": "toastr-top-right",
+                                        "preventDuplicates": false,
+                                        "onclick": null,
+                                        "showDuration": "300",
+                                        "hideDuration": "1000",
+                                        "timeOut": "5000",
+                                        "extendedTimeOut": "1000",
+                                        "showEasing": "swing",
+                                        "hideEasing": "linear",
+                                        "showMethod": "fadeIn",
+                                        "hideMethod": "fadeOut"
+                                    };
+            
+                                    @if(Session::has('success'))
+                                    toastr.success("{{ Session::get('success') }}", "Success");
+                                    @endif
+            
+                                    @if(Session::has('error'))
+                                    toastr.error("{{ Session::get('error') }}", "Error");
+                                    @endif
+            
+                                    @if(Session::has('info'))
+                                    toastr.info("{{ Session::get('info') }}", "Info");
+                                    @endif
+            
+                                    @if(Session::has('warning'))
+                                    toastr.warning("{{ Session::get('warning') }}", "Warning");
+                                    @endif
+                                });
+            
+                            </script>
+                            <!-- Toastr-->
         <div class="row">
             <div class="col-md-6">
                 <div class="card mb-5 mb-xl-10">
@@ -72,12 +71,72 @@
                         <p><strong>Stok:</strong> {{ $buku->stok }}</p>
                         <a href="{{ route('home') }}" class="btn btn-secondary mt-7 ">Kembali ke Daftar Buku</a>
 
-                        <a href="{{ route('pinjam.buku', ['id' => $buku->id]) }}" class="btn btn-primary mt-7">Pinjam Buku</a>
-
+                        @if($buku->stok > 0)
+                            <button id="pinjamBtn" class="btn btn-primary mt-7">Pinjam Buku</button>
+                        @else
+                            <button id="outOfStockBtn" class="btn btn-danger mt-7">Stok Habis</button>
+                        @endif
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle successful flash messages
+        @if(Session::has('success'))
+            Swal.fire({
+                title: 'Berhasil!',
+                text: "{{ Session::get('success') }}",
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        @endif
+
+        // Handle error flash messages
+        @if(Session::has('error'))
+            Swal.fire({
+                title: 'Gagal!',
+                text: "{{ Session::get('error') }}",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        @endif
+
+        // Pinjam button handler
+        const pinjamBtn = document.getElementById('pinjamBtn');
+        if (pinjamBtn) {
+            pinjamBtn.addEventListener('click', function() {
+                Swal.fire({
+                    title: 'Konfirmasi Peminjaman',
+                    text: 'Apakah Anda yakin ingin meminjam buku "{{ $buku->judul }}"?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Pinjam!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "{{ route('pinjam.buku', ['id' => $buku->id]) }}";
+                    }
+                });
+            });
+        }
+
+        // Out of stock button handler
+        const outOfStockBtn = document.getElementById('outOfStockBtn');
+        if (outOfStockBtn) {
+            outOfStockBtn.addEventListener('click', function() {
+                Swal.fire({
+                    title: 'Stok Habis!',
+                    text: 'Maaf, buku "{{ $buku->judul }}" sedang tidak tersedia. Silakan cek kembali nanti.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        }
+    });
+</script>
 @endsection

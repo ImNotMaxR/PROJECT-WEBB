@@ -2,7 +2,14 @@
 @section('title', 'Kelola Buku')
 
 @section('content')
-<div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-xxl">
+<div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="page d-flex flex-row flex-column-fluid">
+        <!--begin::Wrapper-->
+        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <!--begin::Container-->
+            <div class="container-xxl d-flex flex-grow-1 flex-stack">
+                <div id="kt_content_container" class="d-flex flex-column-fluid align-items-start container-xxl">
     <div class="content flex-row-fluid" id="kt_content">
         <div class="row g-5 g-xl-12">
             <div class="col-xl-12">
@@ -463,7 +470,6 @@
 </div>
 </div>
 
-@include('master.footer')
 
 @endsection
 

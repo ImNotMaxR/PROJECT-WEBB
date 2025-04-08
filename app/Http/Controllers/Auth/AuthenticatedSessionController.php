@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         // Cek status admin user
-        if (Auth::user()->role === 'admin') {
+        if (in_array(Auth::user()->role, ['admin', 'superadmin'])) {
             return redirect()->route('admin.dashboard'); // Sesuaikan dengan route admin
         }
     
