@@ -6,7 +6,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\BukuController;  
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\KategoriController;  
-use App\Http\Controllers\PinjamController;  
+use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\PerpanjanganController;
@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pinjam/{id}', [BukuController::class, 'pinjam'])->name('pinjam.buku');
 
     // Buat check Peminjaman
-    Route::get('/peminjaman', [PinjamController::class, 'userPeminjaman'])->name('pinjam.peminjaman');
+    Route::get('/peminjaman', [PeminjamanController::class, 'userPeminjaman'])->name('pinjam.peminjaman');
 
     // BUAT PERPANJANGAN
     Route::post('/perpanjangan/store', [PerpanjanganController::class, 'store'])->name('perpanjangan.store');
@@ -76,13 +76,13 @@ Route::middleware(['CheckUserRole:admin,superadmin'])->prefix('admin')->group(fu
     Route::get('/datatables', [BukuController::class, 'datatables'])->name('buku.datatables');  
 
     //konfirmasi peminjaman
-    Route::get('/peminjaman', [BukuController::class, 'peminjaman_index'])->name('peminjaman.index');  
+    Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');  
 
     // UPDATE STATUS PEMINJAMAN  
-    Route::post('/peminjaman/update-status', [BukuController::class, 'updateStatus'])->name('peminjaman.updateStatus');  
+    Route::post('/peminjaman/update-status', [PeminjamanController::class, 'updateStatus'])->name('peminjaman.updateStatus');  
 
     // Route for deleting a peminjaman  
-    Route::delete('/peminjaman/{id}', [BukuController::class, 'destroyPeminjaman'])->name('peminjaman.destroy');  
+    Route::delete('/peminjaman/{id}', [PeminjamanController::class, 'destroyPeminjaman'])->name('peminjaman.destroy');  
 
     //PERPANJANGAN PEMINJAMAN
     Route::get('/perpanjangan', [PerpanjanganController::class, 'index'])->name('perpanjangan.index');  

@@ -73,53 +73,7 @@ class BukuController extends Controller
             return redirect()->back()->with('error', 'BUKU NYA ABIS BRO');      
         }      
     }      
-  
-    // Request pinjam buku  
-    public function peminjaman_index()  
-    {  
-        $data = Peminjaman::with(['user', 'buku'])->get(); // Eager load user and buku relationships  
-        return view('buku.peminjaman', compact('data'));  
-    }  
-  
-   // ** New Method to Update Peminjaman Status **    
-public function updateStatus(Request $request)    
-{    
-    $request->validate([    
-        'id' => 'required|exists:peminjaman,id',    
-        'status' => 'required|in:pending,disetujui,ditolak,dikembalikan,denda',    
-    ]);    
-  
-    $peminjaman = Peminjaman::find($request->id);    
-  
-    // Update stock based on status  
-    if ($request->status == 'disetujui') {  
-        // Decrease stock when approved  
-        $peminjaman->buku->decrement('stok');  
-    } elseif ($request->status == 'dikembalikan') {  
-        // Increase stock when returned  
-        $peminjaman->buku->increment('stok');  
-    } elseif ($request->status == 'ditolak') {  
-        // No stock change if rejected  
-    }  
 
-    $peminjaman->status = $request->status;    
-    $peminjaman->save();    
-  
-    return response()->json(['success' => true]);    
-}  
-
-  
-    // ** New Method to Delete Peminjaman **  
-    public function destroyPeminjaman($id)  
-    {  
-        $peminjaman = Peminjaman::find($id);  
-        if ($peminjaman) {  
-            $peminjaman->delete();  
-            return response()->json(['success' => true]);  
-        }  
-        return response()->json(['success' => false]);  
-    }  
-  
     // Display paginated books for the dashboard    
     public function index(Request $request)    
     {    

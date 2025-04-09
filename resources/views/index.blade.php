@@ -21,7 +21,7 @@
 <!-- Container  -->
 <div class="container py-6">
     <div class="container py-12 d-flex justify-content-center flex-wrap gap-5">
-        <a href="{{ route('bukus.index', ['category' => 'Buku Pembelajaran']) }}"
+        <a href=""
             class="card hover-elevate-up shadow-sm parent-hover" style="width: 250px;">
             <div class="card-body d-flex align-items-center">
                 <i class="ki-duotone ki-teacher fs-2x">
@@ -35,7 +35,7 @@
             </div>
         </a>
 
-        <a href="{{ route('bukus.index', ['category' => 'Novel']) }}"
+        <a href=""
             class="card hover-elevate-up shadow-sm parent-hover" style="width: 250px;">
             <div class="card-body d-flex align-items-center">
                 <i class="ki-duotone ki-book-square fs-2x">
@@ -50,7 +50,7 @@
             </div>
         </a>
 
-        <a href="{{ route('bukus.index', ['category' => 'Komik']) }}"
+        <a href=""
             class="card hover-elevate-up shadow-sm parent-hover" style="width: 250px;">
             <div class="card-body d-flex align-items-center">
                 <i class="ki-duotone ki-book-square fs-2x">
@@ -65,7 +65,7 @@
             </div>
         </a>
 
-        <a href="{{ route('bukus.index', ['category' => 'Dongeng']) }}"
+        <a href=""
             class="card hover-elevate-up shadow-sm parent-hover" style="width: 250px;">
             <div class="card-body d-flex align-items-center">
                 <i class="ki-duotone ki-book-square fs-2x">
@@ -242,10 +242,6 @@
             @csrf
             <div class="modal-header px-5 py-4">
                 <h3 class="modal-title">Lengkapi Profil Anda</h3>
-                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                    aria-label="Close">
-                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
-                </div>
             </div>
 
             <div class="modal-body px-lg-10 px-5 py-10">

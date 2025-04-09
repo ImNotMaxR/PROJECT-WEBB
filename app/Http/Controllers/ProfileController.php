@@ -109,7 +109,14 @@ class ProfileController extends Controller
     
         return redirect()->route('profile.edit')->with('success', 'Profil berhasil diperbarui!');
     }
-
+    public function updateOnboardingStatus(Request $request)
+    {
+        $user = Auth::user();
+        $user->onboarding = '1';
+        $user->save();
+        
+        return response()->json(['success' => true]);
+    }
     public function updateProfile(Request $request)
     {
         $validated = $request->validate([
@@ -161,6 +168,7 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
+    
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
