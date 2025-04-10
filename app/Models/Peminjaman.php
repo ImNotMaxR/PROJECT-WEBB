@@ -12,7 +12,7 @@ class Peminjaman extends Model
     protected $table = 'peminjaman'; // Explicitly set the table name    
   
     // Define fillable attributes  
-    protected $fillable = ['user_id', 'buku_id', 'tanggal_pinjam', 'tanggal_kembali', 'status'];  
+    protected $fillable = ['user_id', 'buku_id','jumlah_buku', 'tanggal_pinjam', 'tanggal_kembali', 'status'];  
 
     protected $dates = ['tanggal_pinjam', 'tanggal_kembali'];
   

@@ -47,32 +47,45 @@ class BukuController extends Controller
     {      
         $data = Buku::find($id);      
         $buku_id = $id;      
-        $stok = $data->stok;      
+        $stok = $data->stok;
         
-        if ($stok >= '1') {      
+        // Mendapatkan jumlah buku yang diminta
+        $jumlah_buku = request('jumlah_buku', 1);
+        
+        // Validasi jumlah buku
+        if (!is_numeric($jumlah_buku) || $jumlah_buku < 1) {
+            $jumlah_buku = 1;
+        }
+        
+        // Konversi ke integer
+        $jumlah_buku = (int) $jumlah_buku;
+        
+        // Cek stok mencukupi
+        if ($stok >= $jumlah_buku) {      
             if (Auth::id()) {      
                 $user_id = Auth::user()->id;      
         
                 $pinjam = new Peminjaman;      
                 $pinjam->buku_id = $buku_id;      
                 $pinjam->user_id = $user_id;      
+                $pinjam->jumlah_buku = $jumlah_buku; // Simpan jumlah buku
         
                 // Set the tanggal_pinjam to the current date      
-                $pinjam->tanggal_pinjam = now(); // or use Carbon::now() if you have Carbon imported      
+                $pinjam->tanggal_pinjam = now();
         
                 // Set tanggal_kembali to 3 days after tanggal_pinjam    
-                $pinjam->tanggal_kembali = now()->addDays(3); // or use Carbon::now()->addDays(3)    
+                $pinjam->tanggal_kembali = now()->addDays(3);
         
                 $pinjam->save();      
         
-                return redirect()->back()->with('success', 'Pesan Peminjaman Sudah Dikirim Ke Admin Untuk Meminjam Buku Ini');      
+                return redirect()->back()->with('success', "Pesan Peminjaman buku tersebut dengan jumlah $jumlah_buku sudah dikirim ke Admin");      
             } else {      
                 return redirect('/login');       
             }      
         } else {      
-            return redirect()->back()->with('error', 'BUKU NYA ABIS BRO');      
+            return redirect()->back()->with('error', 'Stok buku tidak mencukupi untuk jumlah yang diminta');      
         }      
-    }      
+    } 
 
     // Display paginated books for the dashboard    
     public function index(Request $request)    

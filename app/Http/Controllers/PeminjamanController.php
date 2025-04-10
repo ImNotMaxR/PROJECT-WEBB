@@ -62,22 +62,23 @@ public function getDendaInfo($id)
     ]);
 }
     
-    public function updateStatus(Request $request)    
+public function updateStatus(Request $request)    
 {    
     $request->validate([    
         'id' => 'required|exists:peminjaman,id',    
         'status' => 'required|in:pending,disetujui,ditolak,dikembalikan,denda',    
     ]);    
   
-    $peminjaman = Peminjaman::find($request->id);    
+    $peminjaman = Peminjaman::find($request->id);
+    $jumlah_buku = $peminjaman->jumlah_buku ?? 1; // Default ke 1 jika field belum ada
   
     // Update stock based on status  
     if ($request->status == 'disetujui') {  
         // Decrease stock when approved  
-        $peminjaman->buku->decrement('stok');  
+        $peminjaman->buku->decrement('stok', $jumlah_buku);  
     } elseif ($request->status == 'dikembalikan') {  
         // Increase stock when returned  
-        $peminjaman->buku->increment('stok');  
+        $peminjaman->buku->increment('stok', $jumlah_buku);  
     } elseif ($request->status == 'ditolak') {  
         // No stock change if rejected  
     }  
@@ -86,7 +87,7 @@ public function getDendaInfo($id)
     $peminjaman->save();    
   
     return response()->json(['success' => true]);    
-}  
+}
 
     public function destroyPeminjaman($id)  
     {  

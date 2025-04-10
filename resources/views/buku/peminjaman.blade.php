@@ -39,7 +39,7 @@
                                             <th>Foto Buku</th>
                                             <th>Nama Peminjam</th>
                                             <th>Judul Buku</th>
-                                            <th>Stok</th>
+                                            <th>Jumlah Buku</th>
                                             <th>Tanggal Pinjam</th>
                                             <th>Tanggal Kembali</th>
                                             <th>Status</th>
@@ -70,7 +70,7 @@
                                             </td>
                                             <td>{{ $peminjaman->user->name }}</td>
                                             <td>{{ $peminjaman->buku->judul }}</td>
-                                            <td>{{ $peminjaman->buku->stok }}</td>
+                                            <td>{{ $peminjaman->jumlah_buku }} Buku</td>
                                             <td>{{ $peminjaman->tanggal_pinjam }}</td>
                                             <td>{{ $peminjaman->tanggal_kembali }}</td>
                                             <td>

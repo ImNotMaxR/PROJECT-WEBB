@@ -62,8 +62,9 @@ Route::middleware(['auth'])->group(function () {
 // Admin Routes (akses untuk superadmin dan admin)  
 Route::middleware(['CheckUserRole:admin,superadmin'])->prefix('admin')->group(function () {  
     Route::get('/dashboard', [AdminDashboardController::class, 'Dashboard'])->name('admin.dashboard');   
-  
-
+    Route::get('/data', [AdminDashboardController::class, 'getData'])->name('dashboard.data');
+    Route::get('/category-data', [AdminDashboardController::class, 'getCategoryData'])->name('dashboard.category.data');
+    Route::get('/most-read-books', [AdminDashboardController::class, 'getMostReadBooks'])->name('dashboard.most-read-books');
   
     // Buku management routes for admin  
     Route::prefix('buku')->group(function () {

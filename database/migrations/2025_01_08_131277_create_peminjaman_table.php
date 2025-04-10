@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('buku_id');
+            $table->integer('jumlah_buku');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
             $table->enum('status', ['pending','disetujui','ditolak','dikembalikan','denda']);

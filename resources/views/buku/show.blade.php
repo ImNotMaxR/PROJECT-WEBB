@@ -108,18 +108,51 @@
 
         // Pinjam button handler
         const pinjamBtn = document.getElementById('pinjamBtn');
+        var judulBuku = "{{ $buku->judul }}";
         if (pinjamBtn) {
             pinjamBtn.addEventListener('click', function() {
+                // Get the current stock value
+                const stok = {{ $buku->stok }};
+                
+                // Create options for the select dropdown
+                let options = '';
+                for (let i = 1; i <= stok; i++) {
+                    options += `<option value="${i}">${i}</option>`;
+                }
+                
                 Swal.fire({
-                    title: 'Konfirmasi Peminjaman',
-                    text: 'Apakah Anda yakin ingin meminjam buku "{{ $buku->judul }}"?',
-                    icon: 'question',
+                    title: 'Jumlah Buku',
+                    html: `
+                        <div class="form-group">
+                            <label for="jumlahBuku">Pilih jumlah buku yang ingin dipinjam:</label>
+                            <select id="jumlahBuku" class="form-control">
+                                ${options}
+                            </select>
+                        </div>
+                    `,
                     showCancelButton: true,
-                    confirmButtonText: 'Ya, Pinjam!',
-                    cancelButtonText: 'Batal'
+                    confirmButtonText: 'Lanjutkan',
+                    cancelButtonText: 'Batal',
+                    preConfirm: () => {
+                        return document.getElementById('jumlahBuku').value;
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "{{ route('pinjam.buku', ['id' => $buku->id]) }}";
+                        const jumlahBuku = result.value;
+                        
+                        // Second confirmation with selected quantity
+                        Swal.fire({
+                            title: 'Konfirmasi Peminjaman',
+                            text: `Apakah Anda yakin ingin meminjam ${jumlahBuku} buku "${judulBuku}"?`,
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Ya, Pinjam!',
+                            cancelButtonText: 'Batal'
+                        }).then((confirmResult) => {
+                            if (confirmResult.isConfirmed) {
+                                window.location.href = "{{ route('pinjam.buku', ['id' => $buku->id]) }}?jumlah_buku=" + jumlahBuku;
+                            }
+                        });
                     }
                 });
             });
