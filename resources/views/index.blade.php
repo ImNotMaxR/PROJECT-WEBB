@@ -535,14 +535,12 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Check if user has just registered (check for session flash message)
 
-        const hasJustRegistered = {
-            {
-                session('success') ? 'true' : 'false'
-            }
-        };
+        const hasJustRegistered = {{ session('success') ? 'true' : 'false' }};
+        
 
-        if (hasJustRegistered || needsOnboarding) {
-            localStorage.setItem('needsOnboarding', 'true'); // Simpan status onboarding
+
+        if (hasJustRegistered) {
+            localStorage.setItem('hasJustRegistered', 'true'); // Simpan status onboarding
 
             // Tunda sedikit untuk memastikan halaman sudah dimuat sempurna
             setTimeout(() => {

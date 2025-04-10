@@ -583,7 +583,7 @@
                                     var options = {
                                         series: response.totals, // Data jumlah buku
                                         chart: {
-                                            width: 380,
+                                            width: 500,
                                             type: 'donut',
                                         },
                                         labels: response.categories, // Label kategori
